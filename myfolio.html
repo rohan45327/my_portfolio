@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan@Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import - Roboto */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Changed to Roboto */
+            background-color: #0d1117; /* Dark background */
+            color: #c9d1d9; /* Light grey text */
+        }
+
+        /* Smooth scrolling for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom button styling */
+        .btn-primary:hover{
+            transform:scale-105 duration-300 ease-in-out tracking-wide
+        }
+
+        .btn-secondary:hover {
+           transition: duration-300 ease-in-out tracking-wide;
+        }
+
+        /* Section heading style */
+        .section-heading {
+            text-indent:text-5xl;
+            font:bolder;
+            text-emphasis-color:white mb-12 relative pb-4;
+        }
+
+        .section-heading::after {
+            content: '';
+            transform: translate-x-1/2 w-24 h-1 bg-blue-500 rounded-full;
+        }
+
+        /* Project card hover effect */
+        .project-card {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Skill icon styling */
+        .skill-icon {
+            -moz-text-size-adjust:  5xl 
+            text-blue-400 mb-4;
+        }
+
+        /* Fade-in effect for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px); /* Increased initial translation */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower transition */
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .typing-cursor {
+            display: inline-block;
+            background-color: #6a0dad;
+            width: 3px;
+            height: 1.2em; 
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        #calll{
+            animation: pulse 2.5s infinite ease-in-out;
+        }
+        @keyframes blink-caret {
+            from, to { background-color: transparent; }
+            50% { background-color: #6a0dad; }
+        }
+        @keyframes pulse{
+            0%{
+                box-shadow: 0 0 25px rgb(71, 199, 246), 0 0 8px rgb(224, 54, 224) inset;
+            }
+            50%{
+                box-shadow: 0 0 60px rgb(71, 199, 246), 0 0 14px rgb(224, 54, 224) inset ;
+            }
+            100%{
+                box-shadow: 0 0 25px rgb(71, 199, 246), 0 0 8px rgb(224, 54, 224) inset ;;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Hero Section -->
+    <header class="bg-gray-900 shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-white hover:text-blue-400 transition">Kompella Satya Rohan</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-blue-400 transition text-lg">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-blue-400 transition text-lg">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-blue-400 transition text-lg">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-blue-400 transition text-lg">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 pb-4">
+            <a href="#about" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">About</a>
+            <a href="#skills" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Skills</a>
+            <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Projects</a>
+            <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center text-center bg-cover bg-center relative overflow-hidden" style="background-image: url('back.jpg');">
+        <!-- Optional: A subtle pattern overlay for more visual depth -->
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/lined-paper.png')] opacity-10"></div>
+        <div class="relative z-10 bg-black bg-opacity-75 p-8 md:p-16 rounded-xl shadow-2xl max-w-4xl mx-auto border border-purple-500" id="calll">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+                <span id="hero-typing-text"></span><span class="typing-cursor"></span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                As a passionate developer, I transform complex challenges into elegant, high-performance solutions.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#projects" class="btn-primary">Explore My Projects</a>
+                <a href="#contact" class="btn-secondary">Let's Connect</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-gray-800 fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border-4 border-blue-500 transform hover:scale-105 transition duration-300">
+                    <img src="my.jpg" alt="Rohan's Photo" class="w-full h-full object-cover">
+                </div>
+                <div class="text-lg md:text-xl max-w-2xl text-left leading-relaxed">
+                    <p class="mb-4">
+                        Hello there! I'm <span class="text-blue-400 font-semibold">Rohan</span>, a dedicated and results-driven software engineer with a strong foundation in building scalable and user-centric web applications.
+                        My expertise spans across front-end development, robust back-end systems, and efficient database management, enabling me to tackle projects comprehensively from ideation to successful deployment.
+                    </p>
+                    <p class="mb-4">
+                        I am fueled by a passion for solving complex problems with elegant code and am continuously exploring the latest technologies to deliver innovative, cutting-edge solutions. My primary objective is to craft impactful digital experiences that are not only highly functional but also intuitively designed and visually captivating.
+                    </p>
+                    <p>
+                        Beyond the lines of code, I am committed to continuous learning, sharing knowledge, and actively contributing to the vibrant tech community. I believe in collaboration and innovation. Let's create something truly amazing together!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900 fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading">My Expertise</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Skill Card 1 - Modern SVG placeholder for Web Dev -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4"></path></svg>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Web Development</h3>
+                    <p class="text-gray-400">HTML5, CSS3, JavaScript (ES6+), React.js,</p>
+                </div>
+                <!-- Skill Card 2 - Backend Development -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Backend Development</h3>
+                    <p class="text-gray-400">Python (Flask)</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m0 0l4-4m-4 4l4 4m0-12h12m0 0l-4-4m4 4l-4 4"></path></svg>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Programing & Problem Solving</h3>
+                    <p class="text-gray-400">C programing, Java, Advanced Data Structures</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500 hidden">
+                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Cloud & DevOps</h3>
+                    <p class="text-gray-400">AWS (EC2, S3, Lambda), GCP (Cloud Run), Docker, Kubernetes, CI/CD</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Ai Technologies</h3>
+                    <p class="text-gray-400">Gen Ai, Ai tools, Prompt Engineering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800 fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <img src="loilo.ico" alt="Project One" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Jarvis-an Web Speech Asisstant</h3>
+                        <p class="text-gray-400 mb-4 text-base">
+                            An Full-Stack Project that can Interact with real world Problems 
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">HTML5 & CSS3</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python (Flask)</span>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View Case Study &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <img src="2762372.jpg" alt="Project Two" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Login Portal's</h3>
+                        <p class="text-gray-400 mb-4 text-base">
+                           Designed An Fully futuristic Login Portals for different Platforms
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Html</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Css</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View Demo &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <img src="https://placehold.co/600x400/2f3640/a56de1?text=Project+Three" alt="Project Three" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Tooglers</h3>
+                        <p class="text-gray-400 mb-4 text-base">
+                            Basic Toogle Tools For sites as Changing Themes, Copying Text
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-gradient-to-r from-purple-700 to-indigo-600 text-center text-white fade-in-section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                Ready to bring your ideas to life?
+            </h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10">
+                Whether you have a groundbreaking concept or need a skilled hand for your next project, I'm here to help. Let's create something extraordinary together.
+            </p>
+            <a href="#contact" class="btn-secondary !border-white !text-white hover:!bg-white hover:!text-purple-700 transition duration-300 ease-in-out">Start a Conversation</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading">Connect With Me</h2>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                I'm always open to new opportunities, collaborations, and interesting discussions.
+                Feel free to send a message or find me on my professional networks.
+            </p>
+            <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-xl shadow-2xl border border-blue-600">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-left text-lg font-medium text-gray-300 mb-2">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Full Name"
+                               class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left text-lg font-medium text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com"
+                               class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" required>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-left text-lg font-medium text-gray-300 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Inquiry about collaboration / project"
+                               class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-left text-lg font-medium text-gray-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or what you're looking for..."
+                                  class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+            <div class="mt-12 text-3xl space-x-6">
+                <!-- Social media icons with larger size for impact -->
+                <a href="https://linkedin.com/in/satya-rohan-kompella-324805318" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="LinkedIn">
+                    <svg class="inline-block h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                </a>
+                <a href="https://github.com/rohan45327" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="GitHub">
+                    <svg class="inline-block h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.835 2.809 1.305 3.492.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.333-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.3-2.652-10.364.24-10.601 2.804-.233 5.469 10.395 5.469 10.395.772.194 1.488.297 2.187.297.699 0 1.415-.103 2.187-.297 0 0 2.665-10.628.24-10.601-.295.034-2.771 10.3-2.652 10.601.767.84 1.236 1.911 1.236 3.221 0 4.609-2.801 5.629-5.471 5.923.429.369.812 1.104.812 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.204-6.086 8.204-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                 <a href="mailto:chandujoshita47@gmail.com" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="Email">
+                    <svg class="inline-block h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12.713l-11.75 6.487v-13.84c.002-.533.43-1.042 1-.95l.75.12c.38.06.67.24 1 .49l9 5.41 9-5.41c.33-.25.62-.43 1-.49l.75-.12c.57-.09 1 .417 1 .95v13.84L12 12.713zM2.08 6.223l8.767 4.908L22.08 6.223c-.002-.533-.43-1.042-1-.95l-.75.12c-.38.06-.67.24-1 .49L12 11.287 3.67 6.073c-.33-.25-.62-.43-1-.49l-.75-.12c-.57-.09-1 .417-1 .95z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 text-center text-gray-400">
+        <div class="container mx-auto px-6">
+            <p>&copy; <span id="current-year"></span> Rohan. All rights reserved.</p>
+            <p class="mt-2">Crafted with <span class="text-red-500">&hearts;</span> and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for fade-in effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of the section must be visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Typing effect for Hero section
+            const phrases = [
+                "Innovate. Design. Develop.",
+                "Crafting Digital Experiences.",
+                "Bringing Ideas to Life.",
+                "Creating Innovations."
+            ];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typingSpeed = 100; // milliseconds per character
+            const deletingSpeed = 50; // milliseconds per character
+            const pauseBeforeDelete = 1500; // milliseconds to wait before deleting
+            const pauseBeforeTyping = 500; // milliseconds to wait before typing next phrase
+            const typingTextElement = document.getElementById('hero-typing-text');
+
+            function typeWriter() {
+                const currentPhrase = phrases[phraseIndex];
+                if (isDeleting) {
+                    // Deleting text
+                    typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    // Typing text
+                    typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typingDelay = isDeleting ? deletingSpeed : typingSpeed;
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    // Pause at end of phrase, then start deleting
+                    typingDelay = pauseBeforeDelete;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    // Finished deleting, move to next phrase
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typingDelay = pauseBeforeTyping;
+                }
+
+                setTimeout(typeWriter, typingDelay);
+            }
+
+            // Start typing effect after initial page load
+            setTimeout(typeWriter, 500); // Small delay before starting
+        });
+    </script>
+</body>
+</html>
