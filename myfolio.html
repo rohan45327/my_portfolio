@@ -3,25 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohan.K_Portfolio</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Rohan_Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom font import - Roboto */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap');
 
         body {
-            font-family: 'Roboto', sans-serif; /* Changed to Roboto */
-            background-color: #0d1117; /* Dark background */
-            color: #c9d1d9; /* Light grey text */
+            font-family: 'Roboto';
+            background-color: #0d1117;
+            color: #c9d1d9;
         }
-
-        /* Smooth scrolling for navigation */
         html {
             scroll-behavior: smooth;
         }
-
-        /* Custom button styling */
         .btn-primary:hover{
             transform:scale-105 duration-300 ease-in-out tracking-wide
         }
@@ -95,9 +89,6 @@
                 box-shadow: 0 0 25px rgb(71, 199, 246), 0 0 8px rgb(224, 54, 224) inset ;;
             }
         }
-        #res{
-                color: rgb(46, 46, 255);
-        }
     </style>
 </head>
 <body class="antialiased">
@@ -111,6 +102,7 @@
                 <a href="#skills" class="text-gray-300 hover:text-blue-400 transition text-lg">Skills</a>
                 <a href="#projects" class="text-gray-300 hover:text-blue-400 transition text-lg">Projects</a>
                 <a href="#contact" class="text-gray-300 hover:text-blue-400 transition text-lg">Contact</a>
+                <a href="#certi" class="text-gray-300 hover:text-blue-400 transition text-lg">Certifications</a>
             </div>
             <!-- Mobile Menu Button -->
             <button class="md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
@@ -125,6 +117,7 @@
             <a href="#skills" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Skills</a>
             <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Projects</a>
             <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Contact</a>
+            <a href="#certi" class="text-gray-300 hover:text-blue-400 transition text-lg">Certifications</a>
         </div>
     </header>
 
@@ -165,9 +158,8 @@
                     </p>
                     <p>
                         Beyond the lines of code, I am committed to continuous learning, sharing knowledge, and actively contributing to the vibrant tech community. I believe in collaboration and innovation. Let's create something truly amazing together!
-                    </p>
-                    <br>
-                    <a>Download my</a><a href="my Ats Resume.pdf" download="Rohan's_resume" id="res"> Resume</a>
+                    </p><br>
+                    <a>Download my</a><a href="my Ats Resume.pdf" download="Rohan's_resume" id="res" style="color: rgb(82, 82, 255);"> Resume</a>
                 </div>
             </div>
         </div>
@@ -216,7 +208,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Project Card 1 -->
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="loilo.ico" alt="Project One" class="w-full h-56 object-cover">
+                    <img src="loilo.jpg" alt="Project One" class="w-full h-56 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-white mb-3">Jarvis-an Web Speech Asisstant</h3>
                         <p class="text-gray-400 mb-4 text-base">
@@ -259,6 +251,58 @@
                             <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
                         </div>
                         <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Certifications-->
+    <section id="certi"  class="py-20 bg-gray-800 fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading">My Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <img src="ln.png" alt="Certificate 1" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Gen Ai</h3>
+                        <p class="text-gray-400 mb-4 text-base">
+                           Certified by Linkedin & Microsoft in Generative Ai 
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Gen Ai</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Ai tools</span>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
+                    </div>
+                </div>
+                <!--Second certification-->
+                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <img src="Capture001.png" alt="Certificate 2"class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-white mb-3">JavaScript</h3>
+                        <p class="text-gray-400 mb-4 text-base">
+                           Certified by HackerRank in JavaScript 
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Web Development</span>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
+                    </div>
+                </div>
+                <!--Third certification-->
+                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <img src="hop.png" alt="Certificate 3"class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Ai Tools and More..</h3>
+                        <p class="text-gray-400 mb-4 text-base">
+                           Certified by Skillup, be10x in Prompt Engineering and Ai Tools 
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Prompt Engineering</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Ai Tools</span>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -330,6 +374,7 @@
     <footer class="bg-gray-900 py-8 text-center text-gray-400">
         <div class="container mx-auto px-6">
             <p>&copy; <span id="current-year"></span> Rohan. All rights reserved.</p>
+            <p>Crafted by Rohan</p>
         </div>
     </footer>
 
@@ -359,8 +404,6 @@
             sections.forEach(section => {
                 observer.observe(section);
             });
-
-            // Typing effect for Hero section
             const phrases = [
                 "Innovate. Design. Develop.",
                 "Crafting Digital Experiences.",
@@ -372,10 +415,10 @@
             let phraseIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
-            const typingSpeed = 100; // milliseconds per character
-            const deletingSpeed = 50; // milliseconds per character
-            const pauseBeforeDelete = 1500; // milliseconds to wait before deleting
-            const pauseBeforeTyping = 500; // milliseconds to wait before typing next phrase
+            const typingSpeed = 100;
+            const deletingSpeed = 50;
+            const pauseBeforeDelete = 1500;
+            const pauseBeforeTyping = 500;
             const typingTextElement = document.getElementById('hero-typing-text');
 
             function typeWriter() {
