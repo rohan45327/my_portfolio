@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohan_Portfolio</title>
+    <title>Rohanportfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap');
@@ -117,7 +117,7 @@
             <a href="#about" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">About</a>
             <a href="#skills" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Skills</a>
             <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Projects</a>
-            <a href="#certi" class="text-gray-300 hover:text-blue-400 transition text-lg">Certifications</a>
+            <a href="#certi" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Certifications</a>
             <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Contact</a>
         </div>
     </header>
@@ -147,7 +147,7 @@
             <h2 class="section-heading">About Me</h2>
             <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
                 <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border-4 border-blue-500 transform hover:scale-105 transition duration-300">
-                    <img src="my.jpg" alt="Rohan's Photo" class="w-full h-full object-cover">
+                    <img src="my.jpg" alt="Rohan's Photo" class="w-full h-full object-cover" loading="lazy">
                 </div>
                 <div class="text-lg md:text-xl max-w-2xl text-left leading-relaxed">
                     <p class="mb-4">
@@ -160,7 +160,7 @@
                     <p>
                         Beyond the lines of code, I am committed to continuous learning, sharing knowledge, and actively contributing to the vibrant tech community. I believe in collaboration and innovation. Let's create something truly amazing together!
                     </p><br>
-                    <a>Download my</a><a href="my ats Resume.pdf" download="Rohan's_resume" id="res" style="color: rgb(82, 82, 255);"> Resume</a>
+                    <a>Download my</a><a href="my Ats Resume.pdf" download="Rohan's_resume" id="res" style="color: rgb(82, 82, 255);"> Resume</a>
                 </div>
             </div>
         </div>
@@ -168,20 +168,20 @@
 
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-900 fade-in-section">
-        <div class="container mx-auto px-6 text-center">
+        <div class="container mx-auto px-6 text-center flex-wrap-wrap">
             <h2 class="section-heading">My Expertise</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <!-- Skill Card 1 - Modern SVG placeholder for Web Dev -->
+                <!-- Skill Card 1 -->
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4"></path></svg>
-                    <h3 class="text-2xl font-semibold text-white mb-2">Web Development</h3>
+                    <h3 class="text-2xl font-semibold text-white md-2" id="jum">Web Development</h3>
                     <p class="text-gray-400">HTML5, CSS3, JavaScript (ES6+), React.js,</p>
                 </div>
                 <!-- Skill Card 2 - Backend Development -->
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                    <h3 class="text-2xl font-semibold text-white mb-2">Backend Development</h3>
-                    <p class="text-gray-400">Python (Flask)</p>
+                    <h3 class="text-50rem font-semibold text-white mb-2">Backend Development</h3>
+                    <p class="text-gray-400">Python (Flask), Data Analytics</p>
                 </div>
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m0 0l4-4m-4 4l4 4m0-12h12m0 0l-4-4m4 4l-4 4"></path></svg>
@@ -206,10 +206,10 @@
     <section id="projects" class="py-20 bg-gray-800 fade-in-section">
         <div class="container mx-auto px-6 text-center">
             <h2 class="section-heading">Featured Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 <!-- Project Card 1 -->
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="loilo.jpg" alt="Project One" class="w-full h-56 object-cover" loding="lazy">
+                    <img src="loilo.jpg" alt="Project One" class="w-full h-56 object-cover" loading="lazy">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-white mb-3">Jarvis-an Web Speech Asisstant</h3>
                         <p class="text-gray-400 mb-4 text-base">
@@ -224,9 +224,25 @@
                         <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View Case Study &rarr;</a>
                     </div>
                 </div>
+                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <img src="orange.png" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Weather check</h3>
+                        <p class="text-gray-400 mb-4 text-base">
+                           Crafted an Fully accurate and responsive Weather checking Site (covers Maximum areas)
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Html</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Css</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View Demo &rarr;</a>
+                    </div>
+                </div>
                 <!-- Project Card 2 -->
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="2762372.jpg" alt="Project Two" class="w-full h-56 object-cover" loding="lazy">
+                    <img src="2762372.jpg" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-white mb-3">Login Portal's</h3>
                         <p class="text-gray-400 mb-4 text-base">
@@ -242,7 +258,7 @@
                 </div>
                 <!-- Project Card 3 -->
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="images.jpg" alt="Project Three" class="w-full h-56 object-cover" loding="lazy">
+                    <img src="images.jpg" alt="Project Three" class="w-full h-56 object-cover" loading="lazy">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-white mb-3">Tooglers</h3>
                         <p class="text-gray-400 mb-4 text-base">
@@ -261,9 +277,9 @@
     <section id="certi"  class="py-20 bg-gray-800 fade-in-section">
         <div class="container mx-auto px-6 text-center">
             <h2 class="section-heading">My Certifications</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="ln.png" alt="Certificate 1" class="w-full h-56 object-cover" loding="lazy">
+                    <img src="ln.png" alt="Certificate 1" class="w-full h-56 object-cover lazy" loading="lazy">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-white mb-3">Gen Ai</h3>
                         <p class="text-gray-400 mb-4 text-base">
@@ -276,9 +292,25 @@
                         <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
                     </div>
                 </div>
+                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                    <img src="tata.png" alt="Certificate 3"class="w-full h-56 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Data Analytics</h3>
+                        <p class="text-gray-400 mb-4 text-base">
+                           Certified by Tata & Forge
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Model Selection & Justification</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">EDA</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Predictive Modeling</span>
+                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Handeling Missing Data</span>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
+                    </div>
+                </div>
                 <!--Second certification-->
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="Capture001.png" alt="Certificate 2"class="w-full h-56 object-cover" loding="lazy">
+                    <img src="Capture001.png" alt="Certificate 2"class="w-full h-56 object-cover" loading="lazy">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-white mb-3">JavaScript</h3>
                         <p class="text-gray-400 mb-4 text-base">
@@ -293,7 +325,7 @@
                 </div>
                 <!--Third certification-->
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="hop.png" alt="Certificate 3"class="w-full h-56 object-cover" loding="lazy">
+                    <img src="hop.png" alt="Certificate 3"class="w-full h-56 object-cover" loading="lazy">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-white mb-3">Ai Tools and More..</h3>
                         <p class="text-gray-400 mb-4 text-base">
@@ -390,7 +422,7 @@
             const observerOptions = {
                 root: null, // relative to the viewport
                 rootMargin: '0px',
-                threshold: 0.1 // 10% of the section must be visible
+                threshold: 0.3 // 10% of the section must be visible
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
