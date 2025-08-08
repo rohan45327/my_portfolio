@@ -89,6 +89,65 @@
                 box-shadow: 0 0 25px rgb(71, 199, 246), 0 0 8px rgb(224, 54, 224) inset ;;
             }
         }
+    .project-info-overlay {
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(4, 18, 43, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+}
+
+    .project-info-content {
+            background-color: #1b1b1c;
+            color: #c9d1d9;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border: 3px solid #007bff;
+            animation: rot 1s ease-in-out, fadeIn 0.3s ease-in-out;
+           
+}
+    .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #c9d1d9;
+            transition: color 0.3s ease;
+}
+
+    .close-btn:hover {
+            color: #ff4d4d;
+}
+    @keyframes fadeIn {
+        from {
+             opacity: 0;
+            transform: scale(0.8);
+        }
+         to {
+            opacity: 1;
+            transform: scale(1.0);
+         }
+}
+    @keyframes rot{
+        100%{
+             border-color:  #007bff;
+             rotate: 360deg;
+        }
+    }
+    #jar{
+        color: #4a40ff;
+    }
     </style>
 </head>
 <body class="antialiased">
@@ -160,7 +219,7 @@
                     <p>
                         Beyond the lines of code, I am committed to continuous learning, sharing knowledge, and actively contributing to the vibrant tech community. I believe in collaboration and innovation. Let's create something truly amazing together!
                     </p><br>
-                    <a>Download my</a><a href="my ats Resume.pdf" download="Rohan's_resume" id="res" style="color: rgb(82, 82, 255);"> Resume</a>
+                    <a>Download my</a><a href="my Ats Resume.pdf" download="Rohan's_resume" id="res" style="color: rgb(82, 82, 255);"> Resume</a>
                 </div>
             </div>
         </div>
@@ -190,7 +249,7 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500 hidden">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                    <h3 class="text-2xl font-semibold text-white mb-2">Cloud & DevOps</h3>
+                    <h3 class="text-100em font-semibold text-white mb-2">Cloud & DevOps</h3>
                     <p class="text-gray-400">AWS (EC2, S3, Lambda), GCP (Cloud Run), Docker, Kubernetes, CI/CD</p>
                 </div>
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
@@ -203,76 +262,111 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-800 fade-in-section">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-heading">Featured Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <!-- Project Card 1 -->
-                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="loilo.jpg" alt="Project One" class="w-full h-56 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Jarvis-an Web Speech Asisstant</h3>
-                        <p class="text-gray-400 mb-4 text-base">
-                            An Full-Stack Project that can Interact with real world Problems 
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-2 mb-4">
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">HTML5 & CSS3</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python (Flask)</span>
-                        </div>
-                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View Case Study &rarr;</a>
+     <section id="projects" class="py-20 bg-gray-800 fade-in-section">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="section-heading">Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                <img src="loilo.jpg" alt="Project One" class="w-full h-56 object-cover" loading="lazy">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Jarvis-an Web Speech Asisstant</h3>
+                    <p class="text-gray-400 mb-4 text-base">
+                        An Full-Stack Project that can Interact with real world Problems 
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">HTML5 & CSS3</span>
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python (Flask)</span>
                     </div>
-                </div>
-                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="orange.png" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Weather check</h3>
-                        <p class="text-gray-400 mb-4 text-base">
-                           Crafted an Fully accurate and responsive Weather checking Site (covers Maximum areas)
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-2 mb-4">
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Html</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Css</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
-                        </div>
-                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View Demo &rarr;</a>
-                    </div>
-                </div>
-                <!-- Project Card 2 -->
-                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="2762372.jpg" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Login Portal's</h3>
-                        <p class="text-gray-400 mb-4 text-base">
-                           Designed An Fully futuristic Login Portals for different Platforms
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-2 mb-4">
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Html</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Css</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
-                        </div>
-                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View Demo &rarr;</a>
-                    </div>
-                </div>
-                <!-- Project Card 3 -->
-                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="images.jpg" alt="Project Three" class="w-full h-56 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Tooglers</h3>
-                        <p class="text-gray-400 mb-4 text-base">
-                            Basic Toogle Tools For sites as Changing Themes, Copying Text
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-2 mb-4">
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
-                        </div>
-                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View on GitHub &rarr;</a>
-                    </div>
+                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('jarvis-info')">View &rarr;</a>
                 </div>
             </div>
+
+            <div id="jarvis-info" class="project-info-overlay">
+                <div class="project-info-content">
+                    <h4 class="text-xl font-bold mb-2">Project Details</h4>
+                    <p>This is a full-stack web speech assistant that can interact with the real world. It was built using Python (Flask) for the backend and HTML, CSS, and JavaScript for the frontend, And python as core function logic.</p>
+                    <p class="mt-4">My goal is to make an Speech assistant that can help us in building real world solutions like Alexa, Google Assistant and more. By far my project can do Wiki search(you can ask any questions it will answer from vast Wikipedia Knowledge),Play music(by saying your intrested song name),can Tell time, date, weather, News and more. Can Do Simple Math calculations. Can tell any food item recipies. Can Involve in system controls(adjusting brightness, Opening required apps, creating Files) and more.. The page is Insufficent to show the functions of my project(jarvis)</p>
+                    <p>Wonder What? It can do this all with an Voice Command <strong id="jar">"Hey Jarvis...."</strong></p>
+                    <button class="close-btn" onclick="toggleProjectInfo('jarvis-info')">&times;</button>
+                </div>
+            </div>
+
+            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                <img src="orange.png" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Weather check</h3>
+                    <p class="text-gray-400 mb-4 text-base">
+                        Crafted an Fully accurate and responsive Weather checking Site (covers Maximum areas)
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Html</span>
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Css</span>
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                    </div>
+                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('weather-info')">View &rarr;</a>
+                </div>
+            </div>
+
+            <div id="weather-info" class="project-info-overlay">
+                <div class="project-info-content">
+                    <h4 class="text-xl font-bold mb-2">Weather Check Details</h4>
+                    <p>This is a fully accurate and responsive weather checking website that covers a maximum number of areas. It uses a weather API to fetch real-time data and displays it in an easy-to-read format. It was built using HTML, CSS, JavaScript, and Python.</p>
+                    <button class="close-btn" onclick="toggleProjectInfo('weather-info')">&times;</button>
+                </div>
+            </div>
+
+            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                <img src="2762372.jpg" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Login Portal's</h3>
+                    <p class="text-gray-400 mb-4 text-base">
+                        Designed An Fully futuristic Login Portals for different Platforms
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Html</span>
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Css</span>
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                    </div>
+                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('login-info')">View &rarr;</a>
+                </div>
+            </div>
+
+            <div id="login-info" class="project-info-overlay">
+                <div class="project-info-content">
+                    <h4 class="text-xl font-bold mb-2">Login Portals Details</h4>
+                    <p>This project is a collection of futuristic login portals designed for different platforms. The focus was on creating visually appealing and responsive user interfaces using HTML, CSS, and JavaScript. It showcases a variety of modern design techniques and animations.</p>
+                    <button class="close-btn" onclick="toggleProjectInfo('login-info')">&times;</button>
+                </div>
+            </div>
+            
+            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                <img src="images.jpg" alt="Project Three" class="w-full h-56 object-cover" loading="lazy">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Tooglers</h3>
+                    <p class="text-gray-400 mb-4 text-base">
+                        Basic Toogle Tools For sites as Changing Themes, Copying Text
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                    </div>
+                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('tooglers-info')">View &rarr;</a>
+                </div>
+            </div>
+
+            <div id="tooglers-info" class="project-info-overlay">
+                <div class="project-info-content">
+                    <h4 class="text-xl font-bold mb-2">Tooglers Details</h4>
+                    <p>Tooglers is a set of basic JavaScript tools for websites, including features like changing themes (dark/light mode) and copying text to the clipboard with a single click. It's a simple yet effective project demonstrating fundamental JavaScript DOM manipulation and event handling.</p>
+                    <button class="close-btn" onclick="toggleProjectInfo('tooglers-info')">&times;</button>
+                </div>
+            </div>
+            
         </div>
-    </section>
+    </div>
+</section>
     <!--Certifications-->
     <section id="certi"  class="py-20 bg-gray-800 fade-in-section">
         <div class="container mx-auto px-6 text-center">
@@ -412,24 +506,21 @@
     </footer>
 
     <script>
-        // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Intersection Observer for fade-in effect
         document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('.fade-in-section');
 
             const observerOptions = {
-                root: null, // relative to the viewport
+                root: null,
                 rootMargin: '0px',
-                threshold: 0.3 // 10% of the section must be visible
+                threshold: 0.3
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Stop observing once visible
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
@@ -469,7 +560,6 @@
                 let typingDelay = isDeleting ? deletingSpeed : typingSpeed;
 
                 if (!isDeleting && charIndex === currentPhrase.length) {
-                    // Pause at end of phrase, then start deleting
                     typingDelay = pauseBeforeDelete;
                     isDeleting = true;
                 } else if (isDeleting && charIndex === 0) {
@@ -481,12 +571,16 @@
 
                 setTimeout(typeWriter, typingDelay);
             }
-
-            // Start typing effect after initial page load
-            setTimeout(typeWriter, 500); // Small delay before starting
+            setTimeout(typeWriter, 500);
         });
+        function toggleProjectInfo(infoId) {
+        const infoBlock = document.getElementById(infoId);
+        if (infoBlock.style.display === 'none' || infoBlock.style.display === '') {
+            infoBlock.style.display = 'flex';
+        } else {
+            infoBlock.style.display = 'none';
+        }
+    }
     </script>
 </body>
 </html>
-
-
