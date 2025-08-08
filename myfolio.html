@@ -26,9 +26,11 @@
 
         /* Section heading style */
         .section-heading {
-            text-indent:text-5xl;
+            font-size:x-large;
             font:bolder;
             text-emphasis-color:white mb-12 relative pb-4;
+            padding: 15px;
+            margin: 5px;
         }
 
         .section-heading::after {
@@ -111,7 +113,7 @@
             position: relative;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             border: 3px solid #007bff;
-            animation: rot 1s ease-in-out, fadeIn 0.3s ease-in-out;
+            animation: rot 1s ease-in-out, fadeIn 1s ease-in-out;
            
 }
     .close-btn {
@@ -131,8 +133,8 @@
 }
     @keyframes fadeIn {
         from {
-             opacity: 0;
-            transform: scale(0.8);
+             opacity: 1;
+            transform: scale(0.2);
         }
          to {
             opacity: 1;
@@ -292,7 +294,6 @@
                     <button class="close-btn" onclick="toggleProjectInfo('jarvis-info')">&times;</button>
                 </div>
             </div>
-
             <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                 <img src="orange.png" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
                 <div class="p-6">
@@ -309,7 +310,6 @@
                     <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('weather-info')">View &rarr;</a>
                 </div>
             </div>
-
             <div id="weather-info" class="project-info-overlay">
                 <div class="project-info-content">
                     <h4 class="text-xl font-bold mb-2">Weather Check Details</h4>
@@ -317,7 +317,6 @@
                     <button class="close-btn" onclick="toggleProjectInfo('weather-info')">&times;</button>
                 </div>
             </div>
-
             <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                 <img src="2762372.jpg" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
                 <div class="p-6">
