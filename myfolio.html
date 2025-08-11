@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap');
-
         body {
             font-family: 'Roboto';
             background-color: #0d1117;
@@ -58,8 +57,8 @@
         /* Fade-in effect for sections */
         .fade-in-section {
             opacity: 0;
-            transform: translateY(30px); /* Increased initial translation */
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower transition */
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .fade-in-section.is-visible {
@@ -289,8 +288,8 @@
                 <div class="project-info-content">
                     <h4 class="text-xl font-bold mb-2">Project Details</h4>
                     <p>This is a full-stack web speech assistant that can interact with the real world. It was built using Python (Flask) for the backend and HTML, CSS, and JavaScript for the frontend, And python as core function logic.</p>
-                    <p class="mt-4">My goal is to make an Speech assistant that can help us in building real world solutions like Alexa, Google Assistant and more. By far my project can do Wiki search(you can ask any questions it will answer from vast Wikipedia Knowledge),Play music(by saying your intrested song name),can Tell time, date, weather, News and more. Can Do Simple Math calculations. Can tell any food item recipies. Can Involve in system controls(adjusting brightness, Opening required apps, creating Files) and more.. The page is Insufficent to show the functions of my project(jarvis)</p>
-                    <p>Wonder What? It can do this all with an Voice Command <strong id="jar">"Hey Jarvis...."</strong></p>
+                    <p class="mt-4">Jarvis is a Python-powered AI assistant enhanced with Natural Language Processing (NLP) APIs, delivering human-like understanding with remarkable accuracy. Designed to handle a wide range of tasks—from telling the time and date, fetching live weather updates, and opening applications or websites, to performing Google searches, telling jokes, providing dictionary definitions, Playing music, and engaging in meaningful conversations—Jarvis offers both versatility and reliability. Its modular architecture ensures each feature operates as an independent, easily upgradeable component, making it simple to maintain and expand. Despite its advanced capabilities, Jarvis remains lightweight and user-friendly, proving that powerful automation doesn’t have to come at the cost of complexity. It stands as a demonstration of how intelligent, conversational systems can be built with precision, efficiency, and scalability in mind.</p>
+                    <p>Wonder What? It can do this all just with an Voice Command <strong id="jar">"Hey Jarvis...."</strong></p>
                     <button class="close-btn" onclick="toggleProjectInfo('jarvis-info')">&times;</button>
                 </div>
             </div>
@@ -313,7 +312,8 @@
             <div id="weather-info" class="project-info-overlay">
                 <div class="project-info-content">
                     <h4 class="text-xl font-bold mb-2">Weather Check Details</h4>
-                    <p>This is a fully accurate and responsive weather checking website that covers a maximum number of areas. It uses a weather API to fetch real-time data and displays it in an easy-to-read format. It was built using HTML, CSS, JavaScript, and Python.</p>
+                    <p>This is a fully accurate and responsive weather checking website that covers a maximum number of areas. It uses a weather API to fetch real-time data and displays it in an easy-to-read format And also projects real time weather image(emogi) of prompted city.</p>
+                    <p>Also it can give Give wide range of data Like wind speed, wind direction, humidity, actual and feels like temperature comparision.</p>
                     <button class="close-btn" onclick="toggleProjectInfo('weather-info')">&times;</button>
                 </div>
             </div>
@@ -362,7 +362,6 @@
                     <button class="close-btn" onclick="toggleProjectInfo('tooglers-info')">&times;</button>
                 </div>
             </div>
-            
         </div>
     </div>
 </section>
