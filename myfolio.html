@@ -149,6 +149,13 @@
     #jar{
         color: #4a40ff;
     }
+    #skill{
+        background: linear-gradient(rgb(146, 146, 146),rgb(92, 241, 255));
+        box-shadow: 0 5px 10px rgb(119, 255, 223) ,inset 0 5px 10px white;
+        color:black;
+        font-weight: bolder;
+
+    }
     </style>
 </head>
 <body class="antialiased">
@@ -230,33 +237,54 @@
     <section id="skills" class="py-20 bg-gray-900 fade-in-section">
         <div class="container mx-auto px-6 text-center flex-wrap-wrap">
             <h2 class="section-heading">My Expertise</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                 <!-- Skill Card 1 -->
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4"></path></svg>
-                    <h3 class="text-100em font-semibold text-white md-2" id="jum">Web Development</h3>
-                    <p class="text-gray-400">HTML5, CSS3, JavaScript (ES6+), React.js,</p>
+                    <h3 class="text-100em font-semibold text-white mb-7" id="jum">Web Development</h3>
+                    <div class="flex flex-wrap justify-center gap-3 mb-4">
+                        <span class="text-xs px-3 py-1 rounded-full" id="skill">HTML5 & CSS3</span>
+                        <span class="text-xs px-3 py-1 rounded-full"id="skill">JavaScript</span>
+                        <span class="text-xs px-3 py-1 rounded-full"id="skill">GitHub</span>
+                        <span class="text-xs  px-3 py-1 rounded-full"id="skill">React.js</span>
+                    </div>
                 </div>
                 <!-- Skill Card 2 - Backend Development -->
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-2">Backend Development</h3>
-                    <p class="text-gray-400">Python (Flask), Data Analytics</p>
+                    <h3 class="text-100em font-semibold text-white mb-7">Backend Development</h3>
+                    <div class="flex flex-wrap justify-center gap-3 mb-4">
+                        <span class="text-xs px-3 py-1 rounded-full" id="skill">Flask</span>
+                    </div>
                 </div>
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m0 0l4-4m-4 4l4 4m0-12h12m0 0l-4-4m4 4l-4 4"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-2">Programing & Problem Solving</h3>
-                    <p class="text-gray-400">C programing, Java, Advanced Data Structures</p>
+                    <h3 class="text-100em font-semibold text-white mb-7">Programing & Problem Solving</h3>
+                    <div class="flex flex-wrap justify-center gap-3 mb-4">
+                        <span class="text-xs  px-3 py-1 rounded-full"id="skill">Python</span>
+                        <span class="text-xs px-3 py-1 rounded-full" id="skill">C programing</span>
+                        <span class="text-xs px-3 py-1 rounded-full"id="skill">Java</span>
+                        <span class="text-xs px-3 py-1 rounded-full"id="skill">Advanced Data Structures</span>
+                    </div>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500 hidden">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-2">Cloud & DevOps</h3>
-                    <p class="text-gray-400">AWS (EC2, S3, Lambda), GCP (Cloud Run), Docker, Kubernetes, CI/CD</p>
+                    <h3 class="text-100em font-semibold text-white mb-7">Cloud & Data</h3>
+                    <div class="flex flex-wrap justify-center gap-3 mb-4">
+                    <span class="text-xs px-3 py-1 rounded-full" id="skill">AWS(basic)</span>
+                    <span class="text-xs px-3 py-1 rounded-full"id="skill">Microsoft Azure</span>
+                    <span class="text-xs px-3 py-1 rounded-full"id="skill">Data Analytics</span>
+                    </div>
                 </div>
                 <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-2">Ai Technologies</h3>
-                    <p class="text-gray-400">Gen Ai, Ai tools, Prompt Engineering.</p>
+                    <h3 class="text-100em font-semibold text-white mb-7">Ai Technologies</h3>
+                    <div class="flex flex-wrap justify-center gap-3 mb-4">
+                        <span class="text-xs  px-3 py-1 rounded-full"id="skill">Gen Ai</span>
+                        <span class="text-xs px-3 py-1 rounded-full" id="skill">Ai tools</span>
+                        <span class="text-xs px-3 py-1 rounded-full"id="skill">Prompt Engineering</span>
+                        <span class="text-xs px-3 py-1 rounded-full"id="skill">Data Modeling</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -291,6 +319,29 @@
                     <p class="mt-4">Jarvis is a Python-powered AI assistant enhanced with Natural Language Processing (NLP) APIs, delivering human-like understanding with remarkable accuracy. Designed to handle a wide range of tasks—from telling the time and date, fetching live weather updates, and opening applications or websites, to performing Google searches, telling jokes, providing dictionary definitions, Playing music, and engaging in meaningful conversations—Jarvis offers both versatility and reliability. Its modular architecture ensures each feature operates as an independent, easily upgradeable component, making it simple to maintain and expand. Despite its advanced capabilities, Jarvis remains lightweight and user-friendly, proving that powerful automation doesn’t have to come at the cost of complexity. It stands as a demonstration of how intelligent, conversational systems can be built with precision, efficiency, and scalability in mind.</p>
                     <p>Wonder What? It can do this all just with an Voice Command <strong id="jar">"Hey Jarvis...."</strong></p>
                     <button class="close-btn" onclick="toggleProjectInfo('jarvis-info')">&times;</button>
+                </div>
+            </div>
+            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
+                <img src="binancelog.jpg" alt="Project Three" class="w-full h-56 object-cover" loading="lazy">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Binance-Bot</h3>
+                    <p class="text-gray-400 mb-4 text-base">
+                        The bot supports placing market, limit, and OCO (One Cancels the Other) orders.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python, API, Binance</span>
+                    </div>
+                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('Binance-bot')">View &rarr;</a>
+                </div>
+            </div>
+
+            <div id="Binance-bot" class="project-info-overlay">
+                <div class="project-info-content">
+                    <h4 class="text-xl font-bold mb-2">Binance-Bot Details</h4>
+                    <p>This Project is made as an assessment for my internship. It is based on Trading side helpfull bot. Buit from Pure python and needs to be deployed, This is one of the big deal project I ever done the core logics of python and Api handelings are just insane and learnt many things from errors.</p>
+                    <p>More about Binance-Bot=>This is a simple command-line Python bot designed to place various order types on the Binance Futures Testnet. It serves as a foundational script for learning how to interact with the Binance API for futures trading. The bot supports placing market, limit, and OCO (One Cancels the Other) orders.</p>
+                    <p>The code is Strictured in my GitHub menu Please visit it by clicking Here =><a href="https://github.com/rohan45327/rohan-binance-bot" target="_blank" class="color text-blue-500"> Visit Binance-Bot </a></p>
+                    <button class="close-btn" onclick="toggleProjectInfo('Binance-bot')">&times;</button>
                 </div>
             </div>
             <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
@@ -340,28 +391,6 @@
                     <button class="close-btn" onclick="toggleProjectInfo('login-info')">&times;</button>
                 </div>
             </div>
-            
-            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                <img src="images.jpg" alt="Project Three" class="w-full h-56 object-cover" loading="lazy">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-white mb-3">Tooglers</h3>
-                    <p class="text-gray-400 mb-4 text-base">
-                        Basic Toogle Tools For sites as Changing Themes, Copying Text
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
-                    </div>
-                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('tooglers-info')">View &rarr;</a>
-                </div>
-            </div>
-
-            <div id="tooglers-info" class="project-info-overlay">
-                <div class="project-info-content">
-                    <h4 class="text-xl font-bold mb-2">Tooglers Details</h4>
-                    <p>Tooglers is a set of basic JavaScript tools for websites, including features like changing themes (dark/light mode) and copying text to the clipboard with a single click. It's a simple yet effective project demonstrating fundamental JavaScript DOM manipulation and event handling.</p>
-                    <button class="close-btn" onclick="toggleProjectInfo('tooglers-info')">&times;</button>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -381,9 +410,19 @@
                             <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Gen Ai</span>
                             <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Ai tools</span>
                         </div>
-                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
+                       <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('genai')">View &rarr;</a>
                     </div>
                 </div>
+                <div id="genai" class="project-info-overlay">
+                <div class="project-info-content">
+                    <h4 class="text-xl font-bold mb-2">Generative Ai</h4>
+                    <div>
+                        <img src="ln.png">
+                    </div>
+                    <p class="font-size 2em">This certification is to show that I successfully completed the Generative Ai course and Known about the Importance, Implementation, Usage for Gen Ai</p>
+                    <button class="close-btn" onclick="toggleProjectInfo('genai')">&times;</button>
+                </div>
+            </div>
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <img src="tata.png" alt="Certificate 3"class="w-full h-56 object-cover" loading="lazy">
                     <div class="p-6">
@@ -397,9 +436,19 @@
                             <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Predictive Modeling</span>
                             <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Handeling Missing Data</span>
                         </div>
-                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
+                        <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('tata')">View &rarr;</a>
                     </div>
                 </div>
+                <div id="tata" class="project-info-overlay">
+                <div class="project-info-content">
+                    <h4 class="text-xl font-bold mb-2">Data Analytics</h4>
+                    <div>
+                        <img src=tata.png alt="certification--" loading="lazy">
+                    </div>
+                    <p class="font-size 2em">This Certification is to show that I successfully Completed my Virtual data Analyst Internship in Tata via Forge and Improved my Analytical skills and Gained some real world Skills like EDA, Predictive Modeling, Data Handeling and more</p>
+                    <button class="close-btn" onclick="toggleProjectInfo('tata')">&times;</button>
+                </div>
+            </div>
                 <!--Second certification-->
                 <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
                     <img src="Capture001.png" alt="Certificate 2"class="w-full h-56 object-cover" loading="lazy">
@@ -488,8 +537,13 @@
                 <a href="https://github.com/rohan45327" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="GitHub">
                     <svg class="inline-block h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.835 2.809 1.305 3.492.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.333-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.3-2.652-10.364.24-10.601 2.804-.233 5.469 10.395 5.469 10.395.772.194 1.488.297 2.187.297.699 0 1.415-.103 2.187-.297 0 0 2.665-10.628.24-10.601-.295.034-2.771 10.3-2.652 10.601.767.84 1.236 1.911 1.236 3.221 0 4.609-2.801 5.629-5.471 5.923.429.369.812 1.104.812 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.204-6.086 8.204-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
-                 <a href="mailto:chandujoshita47@gmail.com" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="Email">
+                 <a href="chandujoshita47@gmail.com" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="Email">
                     <svg class="inline-block h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12.713l-11.75 6.487v-13.84c.002-.533.43-1.042 1-.95l.75.12c.38.06.67.24 1 .49l9 5.41 9-5.41c.33-.25.62-.43 1-.49l.75-.12c.57-.09 1 .417 1 .95v13.84L12 12.713zM2.08 6.223l8.767 4.908L22.08 6.223c-.002-.533-.43-1.042-1-.95l-.75.12c-.38.06-.67.24-1 .49L12 11.287 3.67 6.073c-.33-.25-.62-.43-1-.49l-.75-.12c-.57-.09-1 .417-1 .95z"/></svg>
+                </a>
+                <a>
+                    <a href="https://leetcode.com/u/Bkeeg4hNCE/" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="leetcode">
+                        Leetcode
+                    </a>
                 </a>
             </div>
         </div>
