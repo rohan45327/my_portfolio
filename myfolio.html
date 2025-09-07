@@ -112,7 +112,7 @@
             position: relative;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             border: 3px solid #007bff;
-            animation: rot 1s ease-in-out, fadeIn 1s ease-in-out;
+            animation: fadeIn 1s ease-in-out;
            
 }
     .close-btn {
@@ -140,18 +140,12 @@
             transform: scale(1.0);
          }
 }
-    @keyframes rot{
-        100%{
-             border-color:  #007bff;
-             rotate: 360deg;
-        }
-    }
     #jar{
         color: #4a40ff;
     }
     #skill{
-        background: linear-gradient(rgb(146, 146, 146),rgb(92, 241, 255));
-        box-shadow: 0 5px 10px rgb(119, 255, 223) ,inset 0 5px 10px white;
+        background: linear-gradient(60deg ,rgb(146, 146, 146),rgb(92, 241, 255));
+        box-shadow: 0 5px 10px rgb(119, 255, 223) ,inset 12px 5px 19px white;
         color:black;
         font-weight: bolder;
 
@@ -188,9 +182,8 @@
             <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Contact</a>
         </div>
     </header>
-
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center text-center bg-cover bg-center relative overflow-hidden" style="background-image: url('back.jpg');">
+    <section class="min-h-screen flex items-center justify-center text-center bg-cover bg-center relative overflow-hidden " style="background-image: url('blueblack.jpg');" id="back">
         <!-- Optional: A subtle pattern overlay for more visual depth -->
         <div class="absolute inset-0 bg-black opacity-60"></div>
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/lined-paper.png')] opacity-10"></div>
@@ -217,17 +210,19 @@
                     <img src="my.jpg" alt="Rohan's Photo" class="w-full h-full object-cover" loading="lazy">
                 </div>
                 <div class="text-lg md:text-xl max-w-2xl text-left leading-relaxed">
-                    <p class="mb-4">
-                        Hello there! I'm <span class="text-blue-400 font-semibold">Rohan</span>, a dedicated and results-driven software engineer with a strong foundation in building scalable and user-centric web applications.
-                        My expertise spans across front-end development, robust back-end systems, and efficient database management, enabling me to tackle projects comprehensively from ideation to successful deployment.
-                    </p>
-                    <p class="mb-4">
-                        I am fueled by a passion for solving complex problems with elegant code and am continuously exploring the latest technologies to deliver innovative, cutting-edge solutions. My primary objective is to craft impactful digital experiences that are not only highly functional but also intuitively designed and visually captivating.
-                    </p>
-                    <p>
-                        Beyond the lines of code, I am committed to continuous learning, sharing knowledge, and actively contributing to the vibrant tech community. I believe in collaboration and innovation. Let's create something truly amazing together!
-                    </p><br>
-                    <a>Download my</a><a href="resume.pdf" download="Rohan's_resume" id="res" style="color: rgb(82, 82, 255);"> Resume</a>
+                <p class="mb-4">
+                    Hi! I'm <span class="text-blue-400 font-semibold">Rohan</span>, a 2nd-year Computer Science Engineering student with a strong interest in building impactful software solutions. I enjoy working on both front-end and back-end development, exploring databases, and creating projects that bring ideas to life.
+                </p>
+
+                <p class="mb-4">
+                    I love solving problems through code and experimenting with new technologies to keep improving my skills. From developing intelligent assistants to working on full-stack web apps, I try to learn by building and pushing myself with every project.
+                </p>
+
+                <p>
+                    Outside of coding, I’m passionate about continuous learning, sharing knowledge, and connecting with the tech community. My goal is to grow into a versatile software engineer who can craft applications that are not only functional but also creative and user-friendly.
+                </p><br>
+
+                Download my<a href="resume.pdf" download="Rohan_Resume" id="res" class="text-blue-600 hover:underline cursor: pointer"> Resume</a>
                 </div>
             </div>
         </div>
@@ -315,8 +310,17 @@
             <div id="jarvis-info" class="project-info-overlay">
                 <div class="project-info-content">
                     <h4 class="text-xl font-bold mb-2">Project Details</h4>
-                    <p>This is a full-stack web speech assistant that can interact with the real world. It was built using Python (Flask) for the backend and HTML, CSS, and JavaScript for the frontend, And python as core function logic.</p>
-                    <p class="mt-4">Jarvis is a Python-powered AI assistant enhanced with Natural Language Processing (NLP) APIs, delivering human-like understanding with remarkable accuracy. Designed to handle a wide range of tasks—from telling the time and date, fetching live weather updates, and opening applications or websites, to performing Google searches, telling jokes, providing dictionary definitions, Playing music, and engaging in meaningful conversations—Jarvis offers both versatility and reliability. Its modular architecture ensures each feature operates as an independent, easily upgradeable component, making it simple to maintain and expand. Despite its advanced capabilities, Jarvis remains lightweight and user-friendly, proving that powerful automation doesn’t have to come at the cost of complexity. It stands as a demonstration of how intelligent, conversational systems can be built with precision, efficiency, and scalability in mind.</p>
+                    <p>Jarvis – AI-Powered Personal Voice Assistant</p>
+                    <a>Jarvis is a Python-based intelligent assistant capable of answering almost anything through both voice and text inputs. Users can interact via microphone commands or directly through the keyboard, making it flexible and accessible.</a><br>
+                    <p>Key Features:<br>
+                        🎤 Dual Input Modes – Accepts queries from microphone (voice) or keyboard (text).<br>
+                        🧠 Answer Anything – Handles general knowledge, reasoning, problem-solving, and user-specific queries.<br>
+                        📚 Persistent Memory – Remembers past interactions and preferences for a more personalized experience.<br>
+                        🌐 Live Integrations – Fetches weather, news, jokes, and other data from APIs.<br>
+                        ⚡ Automation Support – Can open apps, websites, play music, and perform routine tasks.<br>
+                        🛠️ Expandable Design – Built with modular Python logic for easy upgrades and new features.</p>
+                        <p>This project reflects my ability to combine Python, speech recognition, text processing, and API handling into a powerful assistant that feels interactive, adaptive, and real-world ready.</p>
+                    <p class="mt-4"></p>
                     <p>Wonder What? It can do this all just with an Voice Command <strong id="jar">"Hey Jarvis...."</strong></p>
                     <button class="close-btn" onclick="toggleProjectInfo('jarvis-info')">&times;</button>
                 </div>
@@ -637,4 +641,3 @@
     </script>
 </body>
 </html>
-
