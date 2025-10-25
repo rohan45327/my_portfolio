@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap");
+body {
+  font-family: "Roboto";
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+html {
+  scroll-behavior: smooth;
+}
+.btn-primary:hover {
+  transform: scale-105 duration-300 ease-in-out tracking-wide;
+}
+
+.btn-secondary:hover {
+  transition: duration-300 ease-in-out tracking-wide;
+}
+.section-heading {
+  font-size: x-large;
+  font: bolder;
+  text-emphasis-color: white mb-12 relative pb-4;
+  padding: 15px;
+  margin: 5px;
+}
+
+.section-heading::after {
+  content: "";
+  transform: translate-x-1/2 w-24 h-1 bg-blue-500 rounded-full;
+}
+.project-card {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+.skill-icon {
+  -moz-text-size-adjust: 5xl text-blue-400 mb-4;
+}
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.typing-cursor {
+  display: inline-block;
+  background-color: #6a0dad;
+  width: 3px;
+  height: 1.2em;
+  animation: blink-caret 0.75s step-end infinite;
+}
+#calll {
+  animation: pulse 2.5s infinite ease-in-out;
+}
+@keyframes blink-caret {
+  from,
+  to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #6a0dad;
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 25px rgb(71, 199, 246), 0 0 8px rgb(224, 54, 224) inset;
+  }
+  50% {
+    box-shadow: 0 0 60px rgb(71, 199, 246), 0 0 14px rgb(224, 54, 224) inset;
+  }
+  100% {
+    box-shadow: 0 0 25px rgb(71, 199, 246), 0 0 8px rgb(224, 54, 224) inset;
+  }
+}
+.project-info-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(4, 18, 43, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.project-info-content {
+  background-color: #1b1b1c;
+  color: #c9d1d9;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #007bff;
+  animation: fadeIn 1s ease-in-out;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #c9d1d9;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ff4d4d;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 1;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+#jar {
+  color: #4a40ff;
+}
+#skill {
+  background: linear-gradient(60deg, rgb(117, 115, 115), rgb(119, 239, 250));
+  box-shadow: 0 5px 10px rgb(119, 255, 223), inset 12px 5px 19px white;
+  color: black;
+  font-weight: bolder;
+}
+#skillight {
+  background: linear-gradient(60deg, rgb(117, 115, 115), rgb(119, 239, 250));
+  box-shadow: 0 15px 25px rgb(119, 255, 223), inset 12px 5px 19px white;
+  font-weight: bolder;
+}
