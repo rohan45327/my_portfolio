@@ -4,6 +4,22 @@ body {
   background-color: #0d1117;
   color: #c9d1d9;
 }
+body::-webkit-scrollbar{
+  height: 10px;
+  width: 6px;
+}
+body::-webkit-scrollbar-track{
+  width: 3px;
+  background-color: #6a0dad;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: #c9d1d9;
+  border: 1px solid black;
+  border-radius: 14px;
+}
+body::-webkit-scrollbar-thumb:hover{
+  background-color: #afb5bc;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -79,7 +95,7 @@ html {
   }
 }
 .project-info-overlay {
-  position: fixed;
+  position:fixed;
   top: 0;
   left: 0;
   width: 100%;
