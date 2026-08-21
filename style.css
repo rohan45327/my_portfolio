@@ -232,7 +232,7 @@ header.glass-nav {
    SECTION 1: METACCI HERO LANDING VIEW
    ========================================== */
 .metacci-hero {
-  min-h: 90vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   position: relative;
