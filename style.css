@@ -25,19 +25,25 @@
 
 [data-theme="light"] {
   /* AM Light Mode - Pure Soft White & Charcoal */
-  --bg-primary: #f8fafc;
+  --bg-primary: #d7e9fb;
   --bg-secondary: #ffffff;
   --bg-card: rgba(255, 255, 255, 0.9);
   --bg-card-hover: #ffffff;
-  --text-primary: #08080a;
-  --text-secondary: #2d2e2f;
-  --text-muted: #191b1f;
+  --text-primary: #05023c;
+  --text-secondary: #1502c2bb;
+  --text-muted: #0655a9;
   --border-color: rgba(8, 8, 10, 0.4);
-  --border-color-hover: rgba(247, 255, 25, 0.245);
-  --accent-pill-bg: #08080a;
-  --accent-pill-text: #ffffff;
+  --border-color-hover: rgba(1, 221, 255, 0.997);
+  --accent-pill-bg: #4ee4ffc1;
+  --accent-pill-text: #000726;
   --accent-gold: #d97706;
   --accent-emerald: #059669;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --radius-pill: 9999px;
+  --radius-card: 16px;
 }
 
 *, *::before, *::after {
