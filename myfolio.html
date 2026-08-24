@@ -1,420 +1,638 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohanportfolio</title>
+    <title>Satya Rohan | AI Architect</title>
+    <meta name="description" content="Portfolio of Kompella Satya Rohan - Full-Stack Developer, AI Assistant Builder, & Data Analytics Explorer.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="assets/logo_r.png">
     <link href="style.css" rel="stylesheet">
 </head>
-<body class="antialiased">
-    <header class="bg-gray-900 shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold text-white hover:text-blue-400 transition">Kompella Satya Rohan</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-gray-300 hover:text-blue-400 transition text-lg">About</a>
-                <a href="#skills" class="text-gray-300 hover:text-blue-400 transition text-lg">Skills</a>
-                <a href="#projects" class="text-gray-300 hover:text-blue-400 transition text-lg">Projects</a>
-                <a href="#certi" class="text-gray-300 hover:text-blue-400 transition text-lg">Certifications</a>
-                <a href="#contact" class="text-gray-300 hover:text-blue-400 transition text-lg">Contact</a>
-                
+<body class="antialiased selection:bg-white selection:text-black">
+    <!-- Particle Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-follower" id="cursor-follower"></div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Back To Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glass-nav">
+        <nav class="container mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="#" class="brand-logo flex items-center space-x-2">
+                <img src="assets/logo_r.png" alt="Rohan Logo" class="w-7 h-7 inline-block">
+                <span>Satya Rohan</span>
+            </a>
+
+            <!-- Nav Items -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#terminal" class="nav-link">Terminal</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <button class="md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+
+            <!-- Header Action Controls -->
+            <div class="flex items-center space-x-4">
+                <!-- AM / PM Light & Dark Theme Switcher -->
+                <button id="theme-switch" class="theme-switch-btn" title="Toggle Theme">
+                    <span>🌗</span>
+                    <span id="theme-label">PM [DARK]</span>
+                </button>
+
+                <!-- Copy Email Button -->
+                <button id="copy-email-btn" class="theme-switch-btn hidden sm:inline-flex" title="Copy Email">
+                    <span>📋 Copy Email</span>
+                </button>
+
+                <!-- Book Call CTA -->
+                <a href="https://topmate.io/rohan_k17" target="_blank" rel="noopener noreferrer" class="btn-pill-primary !py-2 !px-5 !text-xs hidden sm:inline-flex">
+                    <span>Book an intro call</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text -300 focus:outline-none p-2 rounded-lg bg-white/5" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
         </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 pb-4">
-            <a href="#about" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">About</a>
-            <a href="#skills" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Skills</a>
-            <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Projects</a>
-            <a href="#certi" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Certifications</a>
-            <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition">Contact</a>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg -950/95 border-b border-white/10 px-6 py-4 space-y-3 font-medium text-sm">
+            <a href="#work" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text -300 hover:text-white">Work</a>
+            <a href="#about" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text -300 hover:text-white">About</a>
+            <a href="#skills" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text -300 hover:text-white">Skills</a>
+            <a href="#terminal" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text -300 hover:text-white">Terminal</a>
+            <a href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text -300 hover:text-white">Contact</a>
+            <a href="https://topmate.io/rohan_k17" target="_blank" rel="noopener noreferrer" class="btn-pill-primary block text-center mt-3">Book an intro call</a>
         </div>
     </header>
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center text-center bg-cover bg-center relative overflow-hidden " style="background-image: url('blueblack.jpg');" id="back">
-                <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/lined-paper.png')] opacity-10"></div>
-        <div class="relative z-10 bg-black bg-opacity-75 p-8 md:p-16 rounded-xl shadow-2xl max-w-4xl mx-auto border border-purple-500" id="calll">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-                <span id="hero-typing-text"></span><span class="typing-cursor"></span>
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                As a passionate developer, I transform complex challenges into elegant, high-performance solutions.
+
+    <!-- SECTION 1: METACCI HERO LANDING VIEW -->
+    <section class="metacci-hero relative" id="hero">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-7xl mx-auto">
+                
+                <!-- Left Column: Headline & Intro -->
+                <div class="lg:col-span-7 space-y-8 text-left">
+                    <h1 class="metacci-headline">
+                        Software Engineer<br>
+                        &amp; AI/ML Engineer for <br>
+                        high-impact teams
+                    </h1>
+
+                    <p class="metacci-subtitle">
+                        I build Highly accurate object detection models, intelligent speech assistants, deepfake image classifiers, Customized OS systems, and scalable web applications with engineering precision.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#contact" class="btn-pill-primary">
+                            <span>Book an intro call</span>
+                        </a>
+                        <a href="#work" class="btn-pill-outline">
+                            <span>Explore Work ↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive 3D Revolving Command Earth Globe -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="globe-canvas-wrapper">
+                        <canvas id="cmd-globe-canvas"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: MIRTA AKINS SCROLL REVEAL PORTRAIT SECTION -->
+    <section class="mirta-section fade-in-section relative" id="about">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-7xl mx-auto">
+                
+                <!-- Left Column: Big Elegant Headline & Bio -->
+                <div class="lg:col-span-6 space-y-6 text-left">
+                    <h2 class="mirta-title">
+                        Hello! I'm <br>
+                        <span class="underline underline-offset-8 decoration-1 decoration -500">Satya Rohan</span>
+                    </h2>
+
+                    <p class="mirta-subtitle">
+                        3rd-Year Computer Science Engineering student specializing in Full-Stack Web Development, Ai-Engineering, Agentic Engineer, &amp; Data Analytics.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap items-center gap-4">
+                        <a href="resume.pdf" download="Rohan_Resume" class="btn-pill-outline">
+                            <span>Get Resume</span> 📥
+                        </a>
+                        <a href="https://linkedin.com/in/satya-rohan-kompella-324805318" target="_blank" class="btn-pill-outline">
+                            <span>LinkedIn Profile ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: BIG Transparent Portrait (NO Borders, NO Frames, Seamless Blend) -->
+                <div class="lg:col-span-6 flex justify-center relative">
+                    <div class="mirta-portrait-wrap">
+                        <img src="assets/professional_pic_removed_back_black.png" alt="Kompella Satya Rohan Portrait">
+                    </div>
+
+                    <!-- Right Circular Social Arc Badges -->
+                    <div class="mirta-social-arc hidden sm:flex">
+                        <a href="https://github.com/rohan45327" target="_blank" class="mirta-social-badge" title="GitHub">gh</a>
+                        <a href="https://leetcode.com/u/Bkeeg4hNCE/" target="_blank" class="mirta-social-badge" title="LeetCode">lc</a>
+                        <a href="mailto:chandujoshita47@gmail.com" class="mirta-social-badge" title="Email">@</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: EXPERTISE & SKILLS MATRIX -->
+    <section id="skills" class="py-24 relative fade-in-section">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="mb-10 text-left">
+                <span class="section-tag">COMPETENCIES</span>
+                <h2 class="section-heading-lg mt-1">Technical Expertise</h2>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap gap-2.5 mb-10">
+                <button class="filter-btn skill-filter-btn active" data-filter="all">ALL SKILLS</button>
+                <button class="filter-btn skill-filter-btn" data-filter="web">WEB &amp; FRONTEND</button>
+                <button class="filter-btn skill-filter-btn" data-filter="backend">BACKEND &amp; DB</button>
+                <button class="filter-btn skill-filter-btn" data-filter="prog">PROGRAMMING</button>
+                <button class="filter-btn skill-filter-btn" data-filter="ai">AI &amp; ANALYTICS</button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Web Dev -->
+                <div class="royal-card skill-card-item" data-skill-cat="web">
+                    <h3 class="text-xl font-bold mb-2">Web Development</h3>
+                    <p class="text-400 text-sm mb-6">Responsive UI, SPA architectures, and modern web interfaces.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-pill">HTML5 &amp; CSS3</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">React.js</span>
+                        <span class="skill-pill">Tailwind</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="90%"></div></div>
+                </div>
+
+                <!-- Backend -->
+                <div class="royal-card skill-card-item" data-skill-cat="backend">
+                    <h3 class="text-xl font-bold mb-2">Backend Engineering</h3>
+                    <p class="text-400 text-sm mb-6">RESTful API endpoints, ORM mapping, and DB modeling.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-pill">FastAPI</span>
+                        <span class="skill-pill">Flask</span>
+                        <span class="skill-pill">SQLAlchemy</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="85%"></div></div>
+                </div>
+
+                <!-- Programming -->
+                <div class="royal-card skill-card-item" data-skill-cat="prog">
+                    <h3 class="text-xl font-bold mb-2">Programming &amp; DSA</h3>
+                    <p class="text-400 text-sm mb-6">Core algorithms, data structures, and problem solving.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">C Language</span>
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">Advanced DSA</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="88%"></div></div>
+                </div>
+
+                <!-- Data Analytics -->
+                <div class="royal-card skill-card-item" data-skill-cat="ai">
+                    <h3 class="text-xl font-bold mb-2">Data Analytics</h3>
+                    <p class="text-400 text-sm mb-6">Data cleaning, EDA, predictive modeling, and insight dashboards.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-pill">Data Modeling</span>
+                        <span class="skill-pill">EDA</span>
+                        <span class="skill-pill">Tableau</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="82%"></div></div>
+                </div>
+
+                <!-- AI Tech -->
+                <div class="royal-card skill-card-item" data-skill-cat="ai">
+                    <h3 class="text-xl font-bold mb-2">AI &amp; Speech Tech</h3>
+                    <p class="text-400 mb-6">Generative AI, speech assistants, and Xception neural nets.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-pill">Generative AI</span>
+                        <span class="skill-pill">Speech AI</span>
+                        <span class="skill-pill">Xception</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="85%"></div></div>
+                </div>
+
+                <!-- Web Scraping -->
+                <div class="royal-card skill-card-item" data-skill-cat="backend">
+                    <h3 class="text-xl font-bold mb-2">Automation &amp; Scraping</h3>
+                    <p class="text-400 text-sm mb-6">Browser automation, captcha solving, and dynamic extraction.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-pill">Selenium</span>
+                        <span class="skill-pill">Python Scraping</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="87%"></div></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: FEATURED PROJECTS SHOWCASE -->
+    <section id="work" class="py-24 relative fade-in-section">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="mb-10 text-left">
+                <span class="section-tag">SELECTED WORKS</span>
+                <h2 class="section-heading-lg mt-1">Featured Projects</h2>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-wrap gap-2.5 mb-10">
+                <button class="filter-btn project-filter-btn active" data-filter="all">ALL PROJECTS</button>
+                <button class="filter-btn project-filter-btn" data-filter="ai">AI ASSISTANTS &amp; ML</button>
+                <button class="filter-btn project-filter-btn" data-filter="fullstack">FULL-STACK</button>
+                <button class="filter-btn project-filter-btn" data-filter="scraping">AUTOMATION</button>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2">
+                
+                <!-- Project 1: VIRA -->
+                <div class="royal-card project-card-item flex flex-col justify-between" data-category="ai fullstack">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 relative">
+                            <img src="assets/virasword.jpg" alt="V.I.R.A Speech Assistant" class="w-full h-full  transform hover:scale-105 transition duration-500">
+                        </div>
+                        <h3 class="text-xl font-bold  mb-2">V.I.R.A - Web Speech Assistant</h3>
+                        <p class="text-400 text-sm mb-4 line-clamp-3">Intelligent Python-based voice and text assistant built with Flask and Railway server deployment.</p>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="skill-pill">HTML5</span>
+                            <span class="skill-pill">JS</span>
+                            <span class="skill-pill">Flask</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleProjectModal('modal-vira')" class="btn-pill-outline w-full !py-2.5 !text-xs justify-center">
+                        <span>Details &amp; Live Site &rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Project 2: DeepFake -->
+                <div class="royal-card project-card-item flex flex-col justify-between" data-category="ai fullstack">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 relative">
+                            <img src="assets/deepfake.png" alt="DeepFake Image Analyzer" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                        </div>
+                        <h3 class="text-xl font-bold  mb-2">DeepFake Image Analyzer</h3>
+                        <p class="text -400 text-sm mb-4 line-clamp-3">Web application analyzing facial imagery using FaceForensics++ &amp; Xception neural network models.</p>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="skill-pill">React</span>
+                            <span class="skill-pill">FastAPI</span>
+                            <span class="skill-pill">Xception</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleProjectModal('modal-deepfake')" class="btn-pill-outline w-full !py-2.5 !text-xs justify-center">
+                        <span>Details &amp; Live Site &rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Project 3: Weather -->
+                <div class="royal-card project-card-item flex flex-col justify-between" data-category="ai">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 relative">
+                            <img src="assets/WhatsApp Image 2026-06-28 at 13.10.37.jpeg"
+                                alt="Drone-Based Bridge Damage Detection and 3D Reconstruction"
+                                class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                        </div>
+
+                        <h3 class="text-xl font-bold  mb-2">
+                            Drone-Based Bridge Damage Detection
+                        </h3>
+
+                        <p class="text -400 text-sm mb-4 line-clamp-3">
+                            AI-powered structural health monitoring using drone imagery, computer vision,
+                            YOLO-based anomaly detection, photogrammetry, and 3D reconstruction.
+                        </p>
+
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">YOLO</span>
+                            <span class="skill-pill">Computer Vision</span>
+                            <span class="skill-pill">Photogrammetry</span>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleProjectModal('modal-weather')"
+                            class="btn-pill-outline w-full !py-2.5 !text-xs justify-center">
+                        <span>Details &rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Project 4: Web Scraping -->
+                <div class="royal-card project-card-item flex flex-col justify-between" data-category="scraping">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 relative">
+                            <img src="assets/logo.png" alt="Rost-OS" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                        </div>
+                        <h3 class="text-xl font-bold  mb-2">An Customized OS</h3>
+                        <p class="text -400 text-sm mb-4 line-clamp-3">A customized operating system built from base version Ubuntu added unique features and optimizations.</p>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="skill-pill">Bash</span>
+                            <span class="skill-pill">System Architecture</span>
+                            <span class="skill-pill">Linux</span>
+                            <span class="skill-pill">OS</span>
+                            <span class="skill-pill">Virtual Machines</span>
+                            <span class="skill-pill">Process Management</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleProjectModal('modal-custom-os')" class="btn-pill-outline w-full !py-2.5 !text-xs justify-center">
+                        <span>Details &amp; Repo &rarr;</span>
+                    </button>
+                </div>
+                <div class="royal-card project-card-item flex flex-col justify-between" data-category="scraping">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 relative">
+                            <img src="assets/scrap.jpeg" alt="eCourt Causelist Downloader" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                        </div>
+                        <h3 class="text-xl font-bold  mb-2">eCourt Causelist Scraper</h3>
+                        <p class="text -400 text-sm mb-4 line-clamp-3">Automated Web Scraper bypassing popups &amp; captchas to fetch judicial causelist PDFs.</p>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">Selenium</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleProjectModal('modal-scraper')" class="btn-pill-outline w-full !py-2.5 !text-xs justify-center">
+                        <span>Details &amp; Repo &rarr;</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CERTIFICATIONS & LIGHTBOX -->
+    <section id="certifications" class="py-24 relative fade-in-section">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="mb-10 text-left">
+                <span class="section-tag">VERIFICATIONS</span>
+                <h2 class="section-heading-lg mt-1">Certifications &amp; Training</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Cert 1: Deloitte -->
+                <div class="royal-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 cursor-pointer" onclick="openCertLightbox('assets/Screenshot (110).png', 'Deloitte Data Analytics Virtual Internship')">
+                            <img src="assets/Screenshot (110).png" alt="Deloitte Certification" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <h3 class="text-lg font-bold  mb-1">Data Analytics</h3>
+                        <p class="section-tag text-xs mb-3">DELOITTE VIRTUAL INTERNSHIP</p>
+                    </div>
+                    <button onclick="openCertLightbox('assets/Screenshot (110).png', 'Deloitte Data Analytics Virtual Internship')" class="section-tag !text-[11px] hover:underline flex items-center gap-1">
+                        <span>Expand Certificate</span> ↗
+                    </button>
+                </div>
+
+                <!-- Cert 2: Tata -->
+                <div class="royal-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 cursor-pointer" onclick="openCertLightbox('assets/tata.png', 'Tata & Forage Data Analyst Experience')">
+                            <img src="assets/tata.png" alt="Tata Certification" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <h3 class="text-lg font-bold  mb-1">Data Analytics</h3>
+                        <p class="section-tag text-xs mb-3">TATA &amp; FORAGE EXPERIENCE</p>
+                    </div>
+                    <button onclick="openCertLightbox('assets/tata.png', 'Tata & Forage Data Analyst Experience')" class="section-tag !text-[11px] hover:underline flex items-center gap-1">
+                        <span>Expand Certificate</span> ↗
+                    </button>
+                </div>
+
+                <!-- Cert 3: HackerRank JS -->
+                <div class="royal-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 cursor-pointer" onclick="openCertLightbox('assets/Capture001.png', 'HackerRank JavaScript Certification')">
+                            <img src="assets/Capture001.png" alt="HackerRank JS Certification" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <h3 class="text-lg font-bold  mb-1">JavaScript Skills</h3>
+                        <p class="section-tag text-xs mb-3">HACKERRANK CERTIFIED</p>
+                    </div>
+                    <button onclick="openCertLightbox('assets/Capture001.png', 'HackerRank JavaScript Certification')" class="section-tag !text-[11px] hover:underline flex items-center gap-1">
+                        <span>Expand Certificate</span> ↗
+                    </button>
+                </div>
+
+                <!-- Cert 4: AI Tools -->
+                <div class="royal-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden rounded-lg mb-4 cursor-pointer" onclick="openCertLightbox('assets/hop.png', 'Microsoft & LinkedIn AI Tools Certification')">
+                            <img src="assets/hop.png" alt="AI Tools Certification" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <h3 class="text-lg font-bold  mb-1">AI Tools &amp; GenAI</h3>
+                        <p class="section-tag text-xs mb-3">MICROSOFT &amp; LINKEDIN</p>
+                    </div>
+                    <button onclick="openCertLightbox('assets/hop.png', 'Microsoft & LinkedIn AI Tools Certification')" class="section-tag !text-[11px] hover:underline flex items-center gap-1">
+                        <span>Expand Certificate</span> ↗
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: INTERACTIVE DEVELOPER CLI TERMINAL -->
+    <section id="terminal" class="py-24 relative fade-in-section">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="mb-10 text-center">
+                <span class="section-tag">CONSOLE</span>
+                <h2 class="section-heading-lg mt-1">Interactive CLI Terminal</h2>
+                <p class="text -400 text-sm mt-2 font-mono">Type <span class="text-amber-400">'help'</span> for available commands.</p>
+            </div>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <div class="text-xs text -400 font-mono">rohan@satya-rohan-pc:~</div>
+                    <div></div>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <div class="terminal-line text-emerald-400 font-bold">Welcome to Satya Rohan's Interactive Portfolio CLI [Version 2.0]</div>
+                    <div class="terminal-line text -400">Type <span class="text-amber-300 font-bold">'help'</span> for a list of available commands or <span class="text-cyan-300 font-bold">'hire'</span> for contact info.</div>
+                </div>
+                <div class="p-3 bg -950/80 border-t border-white/10 flex items-center px-5">
+                    <span class="terminal-prompt">rohan@portfolio:~$</span>
+                    <input type="text" id="terminal-input" class="terminal-input" placeholder="type command here..." autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: CONTACT & SOCIAL SUITE -->
+    <section id="contact" class="py-24 relative fade-in-section">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="mb-10 text-center">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2 class="section-heading-lg mt-1">Start a Conversation</h2>
+            </div>
+
+            <div class="royal-card p-8 sm:p-12">
+                <form class="space-y-6" onsubmit="event.preventDefault(); showToast('Message dispatched! Thank you.');">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-xs font-mono text -400 mb-2">NAME</label>
+                            <input type="text" id="name" required placeholder="Your Name" class="w-full px-4 py-3.5 rounded-lg bg -900/60 border border-white/10  placeholder -500 focus:border-white outline-none transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs font-mono text -400 mb-2">EMAIL</label>
+                            <input type="email" id="email" required placeholder="your.email@example.com" class="w-full px-4 py-3.5 rounded-lg bg -900/60 border border-white/10  placeholder -500 focus:border-white outline-none transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-xs font-mono text -400 mb-2">SUBJECT</label>
+                        <input type="text" id="subject" required placeholder="Inquiry / Opportunity" class="w-full px-4 py-3.5 rounded-lg bg -900/60 border border-white/10  placeholder -500 focus:border-white outline-none transition">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-xs font-mono text -400 mb-2">MESSAGE</label>
+                        <textarea id="message" rows="5" required placeholder="Tell me about your project or opportunity..." class="w-full px-4 py-3.5 rounded-lg bg -900/60 border border-white/10  placeholder -500 focus:border-white outline-none transition"></textarea>
+                    </div>
+                    <button type="submit" class="btn-pill-primary w-full justify-center">
+                        <span>SEND MESSAGE</span> 🚀
+                    </button>
+                </form>
+
+                <!-- Social Links Grid -->
+                <div class="mt-10 pt-6 border-t border-white/10 flex flex-wrap justify-center gap-4">
+                    <a href="https://linkedin.com/in/satya-rohan-kompella-324805318" target="_blank" class="btn-pill-outline !py-2 !px-5 !text-xs">LinkedIn ↗</a>
+                    <a href="https://github.com/rohan45327" target="_blank" class="btn-pill-outline !py-2 !px-5 !text-xs">GitHub ↗</a>
+                    <a href="https://leetcode.com/u/Bkeeg4hNCE/" target="_blank" class="btn-pill-outline !py-2 !px-5 !text-xs">LeetCode ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT MODALS -->
+    <!-- Modal 1: VIRA -->
+    <div class="modal-backdrop" id="modal-vira">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="toggleProjectModal('modal-vira')">&times;</button>
+            <div class="mb-3"><span class="section-tag">VOICE AI &amp; SPEECH ASSISTANT</span></div>
+            <h3 class="text-2xl font-bold  mb-3">V.I.R.A - Virtually Integrated Assistant</h3>
+            <p class="text -300 text-sm leading-relaxed mb-4">
+                V.I.R.A is a Python-based intelligent personal assistant capable of answering voice and keyboard input commands in real-time ("Hey Vira..."). Built with a full-stack Flask architecture and deployed on Railway cloud servers.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#projects" class="btn-primary">Explore My Projects</a>
-                <a href="#contact" class="btn-secondary">Let's Connect</a>
+            <div class="p-4 rounded-lg bg -900 border border-white/10 mb-6 space-y-2 text-xs font-mono text -300">
+                <div><strong>ARCHITECTURE:</strong> Python SpeechRecognition, Pyttsx3 / Web Speech API, Flask REST endpoints.</div>
+                <div><strong>DEPLOYMENT:</strong> Deployed live on Hugging Face Spaces &amp; Railway server.</div>
             </div>
-        </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about" class="py-20 bg-gray-800 fade-in-section">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-heading">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
-                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border-4 border-blue-500 transform hover:scale-105 transition duration-300">
-                    <img src="my.jpg" alt="Rohan's Photo" class="w-full h-full object-cover" loading="lazy">
-                </div>
-                <div class="text-lg md:text-xl max-w-2xl text-left leading-relaxed">
-                <p class="mb-4">
-                    Hi! I'm <span class="text-blue-400 font-semibold">Rohan</span>, a 2nd-year Computer Science Engineering student with a strong interest in building impactful software solutions. I enjoy working on both front-end and back-end development, exploring databases, and creating projects that bring ideas to life.
-                </p>
-
-                <p class="mb-4">
-                    I love solving problems through code and experimenting with new technologies to keep improving my skills. From developing intelligent assistants to working on full-stack web apps, I try to learn by building and pushing myself with every project.
-                </p>
-
-                <p>
-                    Outside of coding, I'm passionate about continuous learning, sharing knowledge, and connecting with the tech community. My goal is to grow into a versatile software engineer who can craft applications that are not only functional but also creative and user-friendly.
-                </p><br>
-
-                Download my<a href="resume.pdf" download="Rohan_Resume" id="res" class="text-blue-600 hover:underline cursor: pointer"> Resume</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-900 fade-in-section">
-        <div class="container mx-auto px-6 text-center flex-wrap-wrap">
-            <h2 class="section-heading">My Expertise</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                <!-- Skill Card 1 -->
-                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500" id="outskill">
-                    <div class="text-xs px-3 py-1 rounded-full" id="skillight" class="skillight"></div>
-                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 4l-4 4 4 4"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-7" id="jum">Web Development</h3>
-                    <div class="flex flex-wrap justify-center gap-3 mb-4">
-                        <span class="text-xs px-3 py-1 rounded-full" id="skill">HTML5 & CSS3</span>
-                        <span class="text-xs px-3 py-1 rounded-full"id="skill">JavaScript</span>
-                        <span class="text-xs px-3 py-1 rounded-full"id="skill">GitHub</span>
-                        <span class="text-xs  px-3 py-1 rounded-full"id="skill">React.js</span>
-                    </div>
-                </div>
-                <!-- Skill Card 2 - Backend Development -->
-                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500" id="outskill">
-                    <div class="text-xs px-3 py-1 rounded-full" id="skillight"></div>
-                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-7">Backend Development</h3>
-                    <div class="flex flex-wrap justify-center gap-3 mb-4">
-                        <span class="text-xs px-3 py-1 rounded-full" id="skill">Fast Api</span>
-                        <span class="text-xs px-3 py-1 rounded-full" id="skill">SqlAlchemy</span>
-                        <span class="text-xs px-3 py-1 rounded-full" id="skill">Postgresql</span>
-                    </div>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500" id="outskill">
-                    <div class="text-xs px-3 py-1 rounded-full" id="skillight"></div>
-                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m0 0l4-4m-4 4l4 4m0-12h12m0 0l-4-4m4 4l-4 4"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-7">Programing & Problem Solving</h3>
-                    <div class="flex flex-wrap justify-center gap-3 mb-4">
-                        <span class="text-xs  px-3 py-1 rounded-full"id="skill">Python</span>
-                        <span class="text-xs px-3 py-1 rounded-full" id="skill">C programing</span>
-                        <span class="text-xs px-3 py-1 rounded-full"id="skill">Java</span>
-                        <span class="text-xs px-3 py-1 rounded-full"id="skill">Advanced Data Structures</span>
-                    </div>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500" id="outskill">
-                    <div class="text-xs px-3 py-1 rounded-full" id="skillight"></div>
-                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-7">Data Analytics</h3>
-                    <div class="flex flex-wrap justify-center gap-3 mb-4">
-                    <span class="text-xs px-3 py-1 rounded-full"id="skill">Data Modeling</span>
-                    <span class="text-xs px-3 py-1 rounded-full"id="skill">Data Analytics</span>
-                    </div>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out border border-transparent hover:border-blue-500" id="outskill">
-                    <div class="text-xs px-3 py-1 rounded-full" id="skillight"></div>
-                    <svg class="skill-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    <h3 class="text-100em font-semibold text-white mb-7">Ai Technologies</h3>
-                    <div class="flex flex-wrap justify-center gap-3 mb-4">
-                        <span class="text-xs  px-3 py-1 rounded-full"id="skill">Gen Ai</span>
-                        <span class="text-xs px-3 py-1 rounded-full" id="skill">Ai tools</span>
-                        <span class="text-xs px-3 py-1 rounded-full"id="skill">Prompt Engineering</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-     <section id="projects" class="py-20 bg-gray-800 fade-in-section">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="section-heading">Featured Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                <img src="virasword.jpg" alt="Project One" class="w-full h-56 object-cover" loading="lazy">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-white mb-3">V.I.R.A-an Web Speech Asisstant</h3>
-                    <p class="text-gray-400 mb-4 text-base">
-                        An Full-Stack Project that can Interact with real world Problems 
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">HTML5 & CSS3</span>
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python (Flask)</span>
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Railway server</span>
-                    </div>
-                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('jarvis-info')">View &rarr;</a>
-                </div>
-            </div>
-
-            <div id="jarvis-info" class="project-info-overlay">
-                <div class="project-info-content">
-                    <h4 class="text-xl font-bold mb-2">Project Details</h4>
-                    <p>V.I.R.A – AI-Powered Personal Voice Assistant</p>
-                    <a>VIRA- Virtually Integrated Assistant is a Python-based intelligent assistant capable of answering almost anything through voice and text inputs. Users can interact via microphone commands or directly through the keyboard, making it flexible and accessible.</a>
-                    <p class="mt-4"></p>
-                    <p>Wonder What? It can do this all just with an Voice Command <strong id="jar">"Hey Vira...."</strong></p><br>
-                    <a>Vist the VIRA site Live => <a href="https://vira.up.railway.app/" target="_blank" class="text-blue-500">Click</a></a><br>
-                    <a>Check the source code and features of VIRA at my => <a href="https://github.com/rohan45327/VIRA-AI-Assistant" target="_blank" class="text-blue-600">GITHUB</a></a>
-                    <button class="close-btn" onclick="toggleProjectInfo('jarvis-info')">&times;</button>
-                </div>
-            </div>
-            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                <img src="scrap.jpeg" alt="Project Three" class="w-full h-56 object-cover" loading="lazy">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-white mb-3">Web-Scrapping</h3>
-                    <p class="text-gray-400 mb-4 text-base">
-                        Made an Web scrapper for Ecourt Causelist pdf downloader
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python, Selenium, FastApi</span>
-                    </div>
-                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('web-scrapper')">View &rarr;</a>
-                </div>
-            </div>
-
-            <div id="web-scrapper" class="project-info-overlay">
-                <div class="project-info-content">
-                    <h4 class="text-xl font-bold mb-2">Web-Scrapping</h4>
-                    <p>In this growing Tech era, Selenium will play an big role in scrapping data from sites.</p>
-                    <p>As my asessment I have made an functional scrapper which takes the details from user and Scraps the data from the Ecourts oficial website and downloads the Causelist for given dates as pdf</p>
-                    <p>I faced problems while solving captchas and Popups occuring in the orginal site while scrapping the data I overcomed them with selenium webdrive support. In this project I learned many things and how to apply web scrapping in real websites</p>
-                    <a href="https://github.com/rohan45327/eCourt-Causelist-download" target="_blank" class="text-blue-500">=> Visit project</a>
-                    <button class="close-btn" onclick="toggleProjectInfo('web-scrapper')">&times;</button>
-                </div>
-            </div>
-            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                <img src="orange.png" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-white mb-3">Weather check</h3>
-                    <p class="text-gray-400 mb-4 text-base">
-                        Crafted an Fully accurate and responsive Weather checking Site (covers Maximum areas)
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Html</span>
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Css</span>
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
-                    </div>
-                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('weather-info')">View &rarr;</a>
-                </div>
-            </div>
-            <div id="weather-info" class="project-info-overlay">
-                <div class="project-info-content">
-                    <h4 class="text-xl font-bold mb-2">Weather Check Details</h4>
-                    <p>This is a fully accurate and responsive weather checking website that covers a maximum number of areas. It uses a weather API to fetch real-time data and displays it in an easy-to-read format And also projects real time weather image(emogi) of prompted city.</p>
-                    <p>Also it can give Give wide range of data Like wind speed, wind direction, humidity, actual and feels like temperature comparision.</p><br>
-                    <a href="https://rohan45327.github.io/Weather_app/weather.html" target="_blank" class="text-blue-600">=> Vist Site</a><br>
-                    <a>Check the source code at my <a class="text-blue-500" href="https://github.com/rohan45327/Weather_app" target="_blank">GITHUB</a></a>
-                    <button class="close-btn" onclick="toggleProjectInfo('weather-info')">&times;</button>
-                </div>
-            </div>
-            <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                <img src="tic.png" alt="Project Two" class="w-full h-56 object-cover" loading="lazy">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-white mb-3">Tic-Tac-Toe</h3>
-                    <p class="text-gray-400 mb-4 text-base">
-                        Designed an Interactive 2 Player tic-tac-toe game with react
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
-                        <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">React.js</span>
-                    </div>
-                    <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('game')">View &rarr;</a>
-                </div>
-            </div>
-
-            <div id="game" class="project-info-overlay">
-                <div class="project-info-content">
-                    <h4 class="text-xl font-bold mb-2">Game Details</h4>
-                    <p>We all get bored atleast once. Apart from stress and work. Spending time with this game is relaxing and stragetic timeout break</p>
-                    <p>I made this site casually for playing with my friends online. And looking forward to develop the UI and animations of this game</p>
-                    <p>I faced some logical Issues while calculating the winners of the game I corrected them by doing some paper work</p>
-                    <button class="close-btn" onclick="toggleProjectInfo('game')">&times;</button>
-                </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="https://rohan45327-vira-ai.hf.space/" target="_blank" class="btn-pill-primary !py-2.5 !px-5 text-xs">VISIT LIVE VIRA ↗</a>
+                <a href="https://github.com/rohan45327/VIRA-AI-Assistant" target="_blank" class="btn-pill-outline !py-2.5 !px-5 text-xs">GITHUB REPO ↗</a>
             </div>
         </div>
     </div>
-</section>
-    <!--Certifications-->
-    <section id="certi"  class="py-20 bg-gray-800 fade-in-section">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-heading">My Certifications</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="ln.png" alt="Certificate 1" class="w-full h-56 object-cover lazy" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Gen Ai</h3>
-                        <p class="text-gray-400 mb-4 text-base">
-                           Certified by Linkedin & Microsoft in Generative Ai 
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-2 mb-4">
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Gen Ai</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Ai tools</span>
-                        </div>
-                       <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('genai')">View &rarr;</a>
-                    </div>
-                </div>
-                <div id="genai" class="project-info-overlay">
-                <div class="project-info-content">
-                    <h4 class="text-xl font-bold mb-2">Generative Ai</h4>
-                    <div>
-                        <img src="ln.png">
-                    </div>
-                    <p class="font-size 2em">This certification is to show that I successfully completed the Generative Ai course and Known about the Importance, Implementation, Usage for Gen Ai</p>
-                    <button class="close-btn" onclick="toggleProjectInfo('genai')">&times;</button>
-                </div>
-            </div>
-                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="tata.png" alt="Certificate 3"class="w-full h-56 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Data Analytics</h3>
-                        <p class="text-gray-400 mb-4 text-base">
-                           Certified by Tata & Forge
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-2 mb-4">
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Model Selection & Justification</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">EDA</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Predictive Modeling</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Handeling Missing Data</span>
-                        </div>
-                        <a class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out cursor-pointer" onclick="toggleProjectInfo('tata')">View &rarr;</a>
-                    </div>
-                </div>
-                <div id="tata" class="project-info-overlay">
-                <div class="project-info-content">
-                    <h4 class="text-xl font-bold mb-2">Data Analytics</h4>
-                    <div>
-                        <img src=tata.png alt="certification--" loading="lazy">
-                    </div>
-                    <p class="font-size 2em">This Certification is to show that I successfully Completed my Virtual data Analyst Internship in Tata via Forge and Improved my Analytical skills and Gained some real world Skills like EDA, Predictive Modeling, Data Handeling and more</p>
-                    <button class="close-btn" onclick="toggleProjectInfo('tata')">&times;</button>
-                </div>
-            </div>
-                <!--Second certification-->
-                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="Capture001.png" alt="Certificate 2"class="w-full h-56 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-white mb-3">JavaScript</h3>
-                        <p class="text-gray-400 mb-4 text-base">
-                           Certified by HackerRank in JavaScript 
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-2 mb-4">
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Web Development</span>
-                        </div>
-                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
-                    </div>
-                </div>
-                <!--Third certification-->
-                <div class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden transition duration-300 ease-in-out border border-transparent hover:border-blue-500">
-                    <img src="hop.png" alt="Certificate 3"class="w-full h-56 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Ai Tools and More..</h3>
-                        <p class="text-gray-400 mb-4 text-base">
-                           Certified by Skillup, be10x in Prompt Engineering and Ai Tools 
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-2 mb-4">
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Prompt Engineering</span>
-                            <span class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Ai Tools</span>
-                        </div>
-                        <a href="#" class="inline-block text-blue-400 hover:text-blue-500 font-medium transition duration-300 ease-in-out">View &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Call-->
-    <section class="py-20 bg-gradient-to-r from-purple-700 to-indigo-600 text-center text-white fade-in-section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-                Ready to bring your ideas to life?
-            </h2>
-            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10">
-                Whether you have a groundbreaking concept or need a skilled hand for your next project, I'm here to help. Let's create something extraordinary together.
+    <!-- Modal 2: DeepFake -->
+    <div class="modal-backdrop" id="modal-deepfake">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="toggleProjectModal('modal-deepfake')">&times;</button>
+            <div class="mb-3"><span class="section-tag">DEEP LEARNING &amp; IMAGE PROCESSING</span></div>
+            <h3 class="text-2xl font-bold  mb-3">DeepFake Image Analyzer</h3>
+            <p class="text -300 text-sm leading-relaxed mb-4">
+                Full-stack deep learning application predicting real vs AI-generated imagery. Trained on the FaceForensics++ dataset utilizing the Xception model for high-confidence predictions.
             </p>
-            <a href="#contact" class="btn-secondary !border-white !text-white hover:!bg-white hover:!text-purple-700 transition duration-300 ease-in-out">Start a Conversation</a>
+            <div class="p-4 rounded-lg bg -900 border border-white/10 mb-6 space-y-2 text-xs font-mono text -300">
+                <div><strong>CHALLENGE SOLVED:</strong> Integrated heavy pickle model weights with FastAPI microservice endpoints, resolved cross-origin file streaming.</div>
+                <div><strong>STACK:</strong> React.js SPA frontend + Vite build system, FastAPI backend.</div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="https://rohan45327-deepfake-image-analyzer.hf.space/" target="_blank" class="btn-pill-primary !py-2.5 !px-5 text-xs">VISIT LIVE ANALYZER ↗</a>
+                <a href="https://github.com/rohan45327/Deep-Fake-Image-Analyzer" target="_blank" class="btn-pill-outline !py-2.5 !px-5 text-xs">GITHUB REPO ↗</a>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact -->
-    <section id="contact" class="py-20 bg-gray-900 fade-in-section">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-heading">Connect With Me</h2>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                I'm always open to new opportunities, collaborations, and interesting discussions.
-                Feel free to send a message or find me on my professional networks.
-            </p>
-            <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-xl shadow-2xl border border-blue-600">
-                <form class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-left text-lg font-medium text-gray-300 mb-2">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Full Name"
-                               class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-left text-lg font-medium text-gray-300 mb-2">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your.email@example.com"
-                               class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" required>
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-left text-lg font-medium text-gray-300 mb-2">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="Inquiry about collaboration / project"
-                               class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" required>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-left text-lg font-medium text-gray-300 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or what you're looking for..."
-                                  class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full">Send Message</button>
-                </form>
-            </div>
-            <div class="mt-12 text-3xl space-x-6">
-                <!-- Social -->
-                <a href="https://linkedin.com/in/satya-rohan-kompella-324805318" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="LinkedIn">
-                    <svg class="inline-block h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-                </a>
-                <a href="https://github.com/rohan45327" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="GitHub">
-                    <svg class="inline-block h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.835 2.809 1.305 3.492.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.333-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.3-2.652-10.364.24-10.601 2.804-.233 5.469 10.395 5.469 10.395.772.194 1.488.297 2.187.297.699 0 1.415-.103 2.187-.297 0 0 2.665-10.628.24-10.601-.295.034-2.771 10.3-2.652 10.601.767.84 1.236 1.911 1.236 3.221 0 4.609-2.801 5.629-5.471 5.923.429.369.812 1.104.812 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.204-6.086 8.204-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                 <a href="chandujoshita47@gmail.com" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="Email">
-                    <svg class="inline-block h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12.713l-11.75 6.487v-13.84c.002-.533.43-1.042 1-.95l.75.12c.38.06.67.24 1 .49l9 5.41 9-5.41c.33-.25.62-.43 1-.49l.75-.12c.57-.09 1 .417 1 .95v13.84L12 12.713zM2.08 6.223l8.767 4.908L22.08 6.223c-.002-.533-.43-1.042-1-.95l-.75.12c-.38.06-.67.24-1 .49L12 11.287 3.67 6.073c-.33-.25-.62-.43-1-.49l-.75-.12c-.57-.09-1 .417-1 .95z"/></svg>
-                </a>
-                <a>
-                    <a href="https://leetcode.com/u/Bkeeg4hNCE/" target="_blank" class="text-gray-400 hover:text-blue-400 transition" aria-label="leetcode">
-                        Leetcode
-                    </a>
-                </a>
+    <!-- Modal 3: Weather -->
+    <div class="modal-backdrop" id="modal-weather">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="toggleProjectModal('modal-weather')">&times;</button>
+            <div class="mb-3"><span class="section-tag">REAL-TIME WEB APP</span></div>
+            <h3 class="text-2xl font-bold  mb-3">Weather Check Dashboard</h3>
+            <p class="text -300 text-sm leading-relaxed mb-4">
+                AI-powered structural health monitoring using drone imagery, computer vision, and photogrammetry. Trained on 13K+ images, achieving &gt;0.75 precision, &gt;0.70 recall, and &gt;0.70 mAP@50 for infrastructure anomaly detection.
+            </p>    
+            <div class="flex flex-wrap gap-3">
+                <a href="https://rohan45327.github.io/Weather_app/weather.html" target="_blank" class="btn-pill-primary !py-2.5 !px-5 text-xs">VISIT SITE ↗</a>
+                <a href="https://github.com/rohan45327/Weather_app" target="_blank" class="btn-pill-outline !py-2.5 !px-5 text-xs">GITHUB REPO ↗</a>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Modal 4: Customized OS -->
+    <div class="modal-backdrop" id="modal-custom-os">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="toggleProjectModal('modal-custom-os')">&times;</button>
+            <div class="mb-3"><span class="section-tag">SYSTEM ADMINISTRATION</span></div>
+            <h3 class="text-2xl font-bold  mb-3">Customized Operating System</h3>
+            <p class="text -300 text-sm leading-relaxed mb-4">
+                Custom-designed operating system tailored for Educationnal Institutions and Students. Improvising Test modes, Supervisor Control over students lab computer etc.
+            </p>
+        </div>
+    </div>
+    <!-- Modal 5: Scraper -->
+    <div class="modal-backdrop" id="modal-scraper">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="toggleProjectModal('modal-scraper')">&times;</button>
+            <div class="mb-3"><span class="section-tag">AUTOMATION &amp; WEB SCRAPING</span></div>
+            <h3 class="text-2xl font-bold  mb-3">eCourt Causelist Automated Scraper</h3>
+            <p class="text -300 text-sm leading-relaxed mb-4">
+                Automated web scraping pipeline built with Python and Selenium WebDriver. Automatically inputs search criteria, overcomes dynamic website popups &amp; captchas, and extracts causelist PDFs for specified dates.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <a href="https://github.com/rohan45327/eCourt-Causelist-download" target="_blank" class="btn-pill-primary !py-2.5 !px-5 text-xs">GITHUB REPOSITORY ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATE LIGHTBOX MODAL -->
+    <div class="lightbox-backdrop" id="cert-lightbox" onclick="closeAllModals()">
+        <div class="text-center" onclick="event.stopPropagation()">
+            <h4 id="lightbox-title" class="section-tag mb-3 text-lg"></h4>
+            <img id="lightbox-img" class="lightbox-img mx-auto" src="" alt="Expanded Certificate">
+            <div class="mt-4 text-xs font-mono text -400">Click outside to close window</div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8 text-center text-gray-400">
-        <div class="container mx-auto px-6">
-            <p>&copy; <span id="current-year"></span> Rohan. All rights reserved.</p>
-            <p>Crafted by Rohan</p>
-            <p>(+|<)</p>
-            <marquee id="marquee" behaviour="slide" loop="infinite" scrollamount="8" direction="left">  This portfolio has been carefully developed using HTML, CSS, Tailwind, and JavaScript, reflecting not only my technical expertise but also my strong focus on modern design principles, responsiveness across all devices, user-friendly interactions, accessibility considerations, and efficient deployment practices. It represents my ability to combine creativity with functionality, ensuring that every project I build is both visually appealing and highly usable in real-world scenarios.</marquee>
+    <footer class="py-12 bg -950 border-t border-white/10 text-center text -400 text-sm font-mono">
+        <div class="container mx-auto px-6 space-y-4">
+            <p>&copy; <span id="current-year"></span> <strong>Kompella Satya Rohan</strong>. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- JS Source Engine -->
     <script src="source.js"></script>
 </body>
 </html>
