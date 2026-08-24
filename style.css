@@ -7,8 +7,8 @@
   --bg-card: rgba(17, 17, 21, 0.75);
   --bg-card-hover: rgba(26, 26, 32, 0.9);
   --text-primary: #f4f4f6;
-  --text-secondary: #8e8e93;
-  --text-muted: #545458;
+  --text-secondary: #97979d;
+  --text-muted: #88888d;
   --border-color: rgba(255, 255, 255, 0.382);
   --border-color-hover: rgb(130, 236, 255);
   --accent-pill-bg: #f4f4f6;
@@ -30,8 +30,8 @@
   --bg-card: rgba(255, 255, 255, 0.9);
   --bg-card-hover: #ffffff;
   --text-primary: #08080a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-secondary: #2d2e2f;
+  --text-muted: #191b1f;
   --border-color: rgba(8, 8, 10, 0.4);
   --border-color-hover: rgba(247, 255, 25, 0.245);
   --accent-pill-bg: #08080a;
